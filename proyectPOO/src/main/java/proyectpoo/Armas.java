@@ -1,0 +1,28 @@
+package proyectpoo;
+
+public class Armas {
+    private String nombre;
+    private int ataque;
+    private int nivelRuido;
+    private int rango;
+    public Armas (String _nombre, int _ataque, int _nivelruido, int _rango){
+        this.nombre = _nombre;
+        this.ataque = _ataque;
+        this.nivelRuido = _nivelruido;
+        this.ataque = _rango;
+    }
+    public String getNombre(){
+        return nombre;
+    }
+    public int getAtaque(){
+        return ataque;
+    }
+    public int getNivelRuido(){
+        return nivelRuido;
+    }
+    public int getRango(){
+        return rango;
+    }
+
+
+}
