@@ -1,19 +1,19 @@
 package proyectpoo;
 public class zombie {
-    protected int vida;
-    protected int daño;
-    protected int vision;
+    private int vida;
+    private int dano;
+    private int vision;
     
-    public zombie(int vida, int daño, int vision) {
-        this.vida = vida;
-        this.daño = daño;
-        this.vision = vision;
+    public zombie(int _vida, int _dano, int _vision) {
+        this.vida = _vida;
+        this.dano = _dano;
+        this.vision = _vision;
     }
     public int getVida(){
         return vida;
     }
-    public int getDaño(){
-        return daño;
+    public int getDano(){
+        return dano;
     }
     public int getVision(){
         return vision;
