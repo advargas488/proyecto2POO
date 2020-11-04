@@ -58,11 +58,20 @@ public class tablero extends javax.swing.JFrame {
     int b38 = 0;
     int b39 = 0;
     int b40 = 0;
-    
+    int doorIs;
+    int barrIs;
     private void set_casilla(JButton casilla,ImageIcon icono){
         if(casilla.getIcon()==icono){
+            if(doorIs == 1){
+                casilla.setIcon(door);
+                doorIs = 0;
+            }else if(barrIs == 1){
+                casilla.setIcon(barr);
+                barrIs = 0;
+            }else{
                 casilla.setIcon(def);
             }
+        }
     }
     private void bt4config(JButton boton,int bb,JButton btnc1,JButton btnc2,JButton btnc3,JButton btnc4){
         if(boton.getIcon()==shooter){personajeClick = 1;}
@@ -158,6 +167,57 @@ public class tablero extends javax.swing.JFrame {
             boton.setIcon(explorador);
             set_casilla(btnc1,explorador);
             set_casilla(btnc2,explorador);      
+        }
+    }
+    private void bt3configdoor(JButton boton,int bb,JButton btnc1,JButton btnc2,JButton btnc3){
+        if(boton.getIcon()==shooter){personajeClick = 1;}
+        if(boton.getIcon()==explorador){personajeClick = 2;}
+        if(personajeClick == 1 && bb==1 && boton.getIcon()==door){
+            sh.setVisible(false);
+            boton.setIcon(shooter);
+            set_casilla(btnc1,shooter);
+            set_casilla(btnc2,shooter);
+            set_casilla(btnc3,shooter); 
+        }
+        else if(personajeClick == 2 && bb==1 && boton.getIcon()==door){
+            nin.setVisible(false);
+            boton.setIcon(explorador);
+            set_casilla(btnc1,explorador);
+            set_casilla(btnc2,explorador);     
+            set_casilla(btnc3,explorador);  
+        }
+    }
+    private void bt3configbarr(JButton boton,int bb,JButton btnc1,JButton btnc2,JButton btnc3){
+        if(boton.getIcon()==shooter){personajeClick = 1;}
+        if(boton.getIcon()==explorador){personajeClick = 2;}
+        if(personajeClick == 1 && bb==1 && boton.getIcon()==barr){
+            sh.setVisible(false);
+            boton.setIcon(shooter);
+            set_casilla(btnc1,shooter);
+            set_casilla(btnc2,shooter);
+            set_casilla(btnc3,shooter); 
+        }
+        else if(personajeClick == 2 && bb==1 && boton.getIcon()==barr){
+            nin.setVisible(false);
+            boton.setIcon(explorador);
+            set_casilla(btnc1,explorador);
+            set_casilla(btnc2,explorador);
+            set_casilla(btnc3,explorador);  
+        }
+    }
+    private void bt1configdoor(JButton boton,int bb,JButton btnc1){
+        if(boton.getIcon()==shooter){personajeClick = 1;}
+        if(boton.getIcon()==explorador){personajeClick = 2;}
+        if(personajeClick == 1 && bb==1 && boton.getIcon()==door){
+            sh.setVisible(false);
+            boton.setIcon(shooter);
+            set_casilla(btnc1,shooter);
+        }
+        else if(personajeClick == 2 && bb==1 && boton.getIcon()==door){
+            nin.setVisible(false);
+            boton.setIcon(explorador);
+            set_casilla(btnc1,explorador);
+            
         }
     }
     @SuppressWarnings("unchecked")
@@ -319,20 +379,45 @@ public class tablero extends javax.swing.JFrame {
 
         btn20.setIcon(def);
         btn20.setText("jButton1");
+        btn20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn20MouseClicked(evt);
+            }
+        });
 
         btn19.setIcon(cruz);
         btn19.setText("jButton1");
 
         btn18.setIcon(def);
+        btn18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn18MouseClicked(evt);
+            }
+        });
 
         btn21.setIcon(door);
         btn21.setText("jButton1");
+        btn21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn21MouseClicked(evt);
+            }
+        });
 
         btn22.setIcon(def);
         btn22.setText("jButton1");
+        btn22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn22MouseClicked(evt);
+            }
+        });
 
         btn23.setIcon(def);
         btn23.setText("jButton1");
+        btn23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn23MouseClicked(evt);
+            }
+        });
 
         btn17.setIcon(def);
         btn17.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -343,22 +428,57 @@ public class tablero extends javax.swing.JFrame {
 
         btn28.setIcon(barr);
         btn28.setText("jButton1");
+        btn28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn28MouseClicked(evt);
+            }
+        });
+        btn28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn28ActionPerformed(evt);
+            }
+        });
 
         btn27.setIcon(def);
         btn27.setText("jButton1");
+        btn27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn27MouseClicked(evt);
+            }
+        });
 
         btn26.setIcon(def);
+        btn26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn26MouseClicked(evt);
+            }
+        });
 
         btn29.setIcon(def);
         btn29.setText("jButton1");
+        btn29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn29MouseClicked(evt);
+            }
+        });
 
         btn30.setIcon(def);
         btn30.setText("jButton1");
+        btn30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn30MouseClicked(evt);
+            }
+        });
 
         btn31.setIcon(cruz);
         btn31.setText("jButton1");
 
         btn25.setIcon(def);
+        btn25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn25MouseClicked(evt);
+            }
+        });
 
         btn36.setIcon(cruz);
         btn36.setText("jButton1");
@@ -367,20 +487,50 @@ public class tablero extends javax.swing.JFrame {
         btn35.setText("jButton1");
 
         btn34.setIcon(def);
+        btn34.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn34MouseClicked(evt);
+            }
+        });
 
         btn37.setIcon(def);
         btn37.setText("jButton1");
+        btn37.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn37MouseClicked(evt);
+            }
+        });
 
         btn38.setIcon(def);
         btn38.setText("jButton1");
+        btn38.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn38MouseClicked(evt);
+            }
+        });
 
         btn39.setIcon(door);
         btn39.setText("jButton1");
+        btn39.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn39MouseClicked(evt);
+            }
+        });
 
         btn33.setIcon(def);
+        btn33.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn33MouseClicked(evt);
+            }
+        });
 
         btn32.setIcon(def);
         btn32.setText("jButton1");
+        btn32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn32MouseClicked(evt);
+            }
+        });
 
         btn8.setIcon(def);
         btn8.setText("jButton1");
@@ -392,6 +542,11 @@ public class tablero extends javax.swing.JFrame {
 
         btn40.setIcon(def);
         btn40.setText("jButton1");
+        btn40.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn40MouseClicked(evt);
+            }
+        });
 
         btn16.setIcon(def);
         btn16.setText("jButton1");
@@ -408,6 +563,11 @@ public class tablero extends javax.swing.JFrame {
 
         btn24.setIcon(def);
         btn24.setText("jButton1");
+        btn24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn24MouseClicked(evt);
+            }
+        });
 
         sh.setText("shooter");
         sh.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -589,7 +749,7 @@ public class tablero extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void shMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shMouseClicked
         todos_cero();
         personajeClick = 1;
@@ -752,6 +912,179 @@ public class tablero extends javax.swing.JFrame {
         b9 = 1;
         b18 = 1;
     }//GEN-LAST:event_btn17MouseClicked
+
+    private void btn18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn18MouseClicked
+        bt3config(btn18,b18,btn17,btn10,btn26);
+        todos_cero();
+        b17 = 1;
+        b10 = 1;
+        b26 = 1;
+    }//GEN-LAST:event_btn18MouseClicked
+
+    private void btn20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn20MouseClicked
+        bt3config(btn20,b20,btn12,btn21,btn28);
+        todos_cero();
+        b12 = 1;
+        b21= 1;
+        b28 = 1;
+    }//GEN-LAST:event_btn20MouseClicked
+
+    private void btn21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn21MouseClicked
+        bt3configdoor(btn21,b21,btn13,btn20,btn29);
+        todos_cero();
+        b13 = 1;
+        b20 = 1;
+        b29 = 1;
+        if(btn21.getIcon()!=door){
+            doorIs = 1;
+        }else{
+            doorIs = 0;
+        }
+    }//GEN-LAST:event_btn21MouseClicked
+
+    private void btn22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn22MouseClicked
+        bt3config(btn22,b22,btn23,btn14,btn30);
+        todos_cero();
+        b23 = 1;
+        b14 = 1;
+        b30 = 1;
+    }//GEN-LAST:event_btn22MouseClicked
+
+    private void btn23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn23MouseClicked
+        bt3config(btn23,b23,btn22,btn15,btn24);
+        todos_cero();
+        b22 = 1;
+        b15 = 1;
+        b24 = 1;
+    }//GEN-LAST:event_btn23MouseClicked
+
+    private void btn24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn24MouseClicked
+        bt3config(btn24,b24,btn23,btn16,btn32);
+        todos_cero();
+        b23 = 1;
+        b16 = 1;
+        b32 = 1;
+    }//GEN-LAST:event_btn24MouseClicked
+
+    private void btn25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn25MouseClicked
+        bt3config(btn25,b25,btn26,btn17,btn33);
+        todos_cero();
+        b26 = 1;
+        b17 = 1;
+        b33 = 1;
+    }//GEN-LAST:event_btn25MouseClicked
+
+    private void btn26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn26MouseClicked
+        bt4config(btn26,b26,btn25,btn27,btn18,btn34);
+        todos_cero();
+        b25 = 1;
+        b27 = 1;
+        b18 = 1;
+        b34 = 1;
+    }//GEN-LAST:event_btn26MouseClicked
+
+    private void btn27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn27MouseClicked
+        bt2config(btn27,b27,btn26,btn28);
+        todos_cero();
+        b26 = 1;
+        b28 = 1;
+    }//GEN-LAST:event_btn27MouseClicked
+
+    private void btn28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn28ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn28ActionPerformed
+
+    private void btn28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn28MouseClicked
+        bt3configbarr(btn28,b28,btn27,btn20,btn29);
+        todos_cero();
+        b27 = 1;
+        b20 = 1;
+        if(btn21.getIcon()!=barr){
+            barrIs = 1;
+        }else{
+            barrIs = 0;
+        }
+    }//GEN-LAST:event_btn28MouseClicked
+
+    private void btn29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn29MouseClicked
+        bt4config(btn29,b29,btn28,btn30,btn37,btn21);
+        todos_cero();
+        b28 = 1;
+        b30 = 1;
+        b37 = 1;
+        b21 = 1;
+    }//GEN-LAST:event_btn29MouseClicked
+
+    private void btn30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn30MouseClicked
+        bt3config(btn30,b30,btn29,btn22,btn38);
+        todos_cero();
+        b29 = 1;
+        b22 = 1;
+        b38 = 1;
+    }//GEN-LAST:event_btn30MouseClicked
+
+    private void btn32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn32MouseClicked
+        bt2config(btn32,b32,btn24,btn40);
+        todos_cero();
+        b24 = 1;
+        b40 = 1;
+    }//GEN-LAST:event_btn32MouseClicked
+
+    private void btn33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn33MouseClicked
+        bt2config(btn33,b33,btn25,btn34);
+        todos_cero();
+        b25 = 1;
+        b34 = 1;
+    }//GEN-LAST:event_btn33MouseClicked
+
+    private void btn34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn34MouseClicked
+        bt2config(btn34,b34,btn26,btn33);
+        todos_cero();
+        b26 = 1;
+        b33 = 1;
+    }//GEN-LAST:event_btn34MouseClicked
+
+    private void btn37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn37MouseClicked
+        bt2config(btn37,b37,btn29,btn38);
+        todos_cero();
+        b29 = 1;
+        b38 = 1;
+    }//GEN-LAST:event_btn37MouseClicked
+
+    private void btn38MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn38MouseClicked
+        bt3config(btn38,b38,btn37,btn39,btn30);
+        todos_cero();
+        b37 = 1;
+        b39 = 1;
+        b30 = 1;
+    }//GEN-LAST:event_btn38MouseClicked
+
+    private void btn39MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn39MouseClicked
+        bt1configdoor(btn39,b39,btn38);
+        todos_cero();
+        b38 = 1;
+        if(btn39.getIcon()!=door){
+            doorIs = 1;
+        }else{
+            doorIs = 0;
+        }
+    }//GEN-LAST:event_btn39MouseClicked
+
+    private void btn40MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn40MouseClicked
+        if(btn40.getIcon()==shooter){personajeClick = 1;}
+        if(btn40.getIcon()==explorador){personajeClick = 2;}
+        if(personajeClick == 1 && b40==1 && btn40.getIcon()==def){
+            sh.setVisible(false);
+            btn40.setIcon(shooter);
+            set_casilla(btn32,shooter);
+        }
+        else if(personajeClick == 2 && b40==1 && btn40.getIcon()==def){
+            nin.setVisible(false);
+            btn40.setIcon(explorador);
+            set_casilla(btn32,explorador);
+        }
+        b32 = 1;
+    }//GEN-LAST:event_btn40MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
