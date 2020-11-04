@@ -5,6 +5,7 @@ public class personaje {
     protected String arma;
     protected int rango;
     
+    
     public personaje(int nuevoAtaque, int nuevaVida, String nuevaArma, int nuevoRango){
         this.ataque = nuevoAtaque;
         this.vida = nuevaVida;
