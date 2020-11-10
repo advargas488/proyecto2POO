@@ -3,8 +3,8 @@ package proyectpoo;
 public class explorador extends personaje {
     private int casillasAvanzar;
     private int regeneracionVida;
-    public explorador(int nuevoAtaque, int nuevaVida, String nuevaArma,int nuevoRango, int casillas, int nuevaRegeneracionVida){
-        super(nuevoAtaque,nuevaVida,nuevaArma,nuevoRango);
+    public explorador(int nuevoAtaque, int nuevaVida, String nuevaArma,int nuevoRango, int casillas, int nuevaRegeneracionVida, int nuevoRuido){
+        super(nuevoAtaque,nuevaVida,nuevaArma,nuevoRango,nuevoRuido);
         this.casillasAvanzar = casillas;
         this.regeneracionVida = nuevaRegeneracionVida;
     }
@@ -13,5 +13,6 @@ public class explorador extends personaje {
     }
     public int getHabilidad2(){
         return regeneracionVida;
+        
     }
 }

@@ -4,13 +4,14 @@ public class personaje {
     protected int vida;
     protected String arma;
     protected int rango;
+    protected int ruido;
     
-    
-    public personaje(int nuevoAtaque, int nuevaVida, String nuevaArma, int nuevoRango){
+    public personaje(int nuevoAtaque, int nuevaVida, String nuevaArma, int nuevoRango, int nuevoRuido){
         this.ataque = nuevoAtaque;
         this.vida = nuevaVida;
         this.arma = nuevaArma;
         this.rango = nuevoRango;
+        this.rango = nuevoRuido;
     }
     public int getAtaque(){
         return ataque;
