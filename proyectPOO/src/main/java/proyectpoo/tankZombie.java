@@ -1,11 +1,11 @@
 package proyectpoo;
 
 public class tankZombie extends zombie {
-    private int vidaExtra;
-    private int armadura;
+    protected int vidaExtra;
+    protected int armadura;
     
-    public tankZombie(int _vida, int _daño, int _vision,int _vidaExtra, int _armadura){
-        super(_vida, _daño, _vision);
+    public tankZombie(int _vida, int _daño, String _item,int _vidaExtra, int _armadura){
+        super(_vida, _daño, _item);
         this.armadura = _armadura;
         this.vidaExtra = _vidaExtra;
     }

@@ -1,13 +1,13 @@
 package proyectpoo;
 public class zombie {
-    private int vida;
-    private int dano;
-    private int vision;
+    protected int vida;
+    protected int dano;
+    protected String item;
     
-    public zombie(int _vida, int _dano, int _vision) {
+    public zombie(int _vida, int _dano, String _item) {
         this.vida = _vida;
         this.dano = _dano;
-        this.vision = _vision;
+        this.item = _item;
     }
     public int getVida(){
         return vida;
@@ -15,7 +15,7 @@ public class zombie {
     public int getDano(){
         return dano;
     }
-    public int getVision(){
-        return vision;
+    public String getItem(){
+        return item;
     }
 }

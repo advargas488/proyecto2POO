@@ -1,8 +1,8 @@
 package proyectpoo;
 
 public class ninja extends personaje {
-    private int dañoExtra;
-    private int sangrado;
+    protected int dañoExtra;
+    protected int sangrado;
     
     public ninja(int nuevoAtaque, int nuevaVida, String nuevaArma,int nuevoRango, int nuevoDañoExtra, int nuevoSangrado, int nuevoRuido){
         super(nuevoAtaque,nuevaVida,nuevaArma,nuevoRango,nuevoRuido);

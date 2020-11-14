@@ -1,7 +1,7 @@
 package proyectpoo;
 public class tirador extends personaje{
-    private int tiroExtra;
-    private int critico;
+    protected int tiroExtra;
+    protected int critico;
     
     public tirador(int nuevoAtaque, int nuevaVida, String nuevaArma,int nuevoRango, int nuevoTiroExtra, int critico, int nuevoRuido){
         super(nuevoAtaque,nuevaVida,nuevaArma,nuevoRango,nuevoRuido);
