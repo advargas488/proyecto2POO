@@ -2,9 +2,9 @@ package proyectpoo;
 
 public class Armas {
     private String nombre;
-    private int ataque;
-    private int nivelRuido;
-    private int rango;
+    protected int ataque;
+    protected int nivelRuido;
+    protected int rango;
     public Armas (String _nombre, int _ataque, int _nivelruido, int _rango){
         this.nombre = _nombre;
         this.ataque = _ataque;
