@@ -16,17 +16,16 @@ public class tablero extends javax.swing.JFrame {
         zombie = zombiebase;
         spawn.setIcon(zombie);
         atack.setVisible(false);
-        tank.vida += tank.vidaExtra;
-        superz.vida += superz.vidaExtra;
+        
     }
     //definicion personajes
     explorador explorador1 = new explorador(20,100,"NO",1,1,0,0);
     tirador tirador1 = new tirador(25,100,"NO",2,0,0,1);
     ninja ninja1 = new ninja(30,100,"NO",1,0,0,0);
     //definicion de los zombies
-    tankZombie tank = new tankZombie(50,10,"Filo Infinito",20,5);
-    flashZombie flash = new flashZombie(50,10,"Pistola Hextech",5,1);
-    superZombie superz = new superZombie(60,10,"Espada de Doran",25,2);
+    tankZombie tank = new tankZombie(80,10,"Filo Infinito",20,5);
+    flashZombie flash = new flashZombie(80,10,"Pistola Hextech",2,1);
+    superZombie superz = new superZombie(80,10,"Espada de Doran",25,10);
     //definicion de armas
     Armas pistola = new Armas("Pistola Hextech",30,1,2);
     Armas espada = new Armas("Filo infinito",10,0,1);
@@ -99,84 +98,1346 @@ public class tablero extends javax.swing.JFrame {
     JButton setspawn;
     //para saber cuantos zombies hay en el tablero
     int znum = 0;
+    JButton botnfrentez;
+    int mover = 0;
+    private JButton casillasZ(ImageIcon zombieamover){
+        if(btn2.getIcon() == zombieamover){
+                botnfrentez = btn2;
+            }
+        else if(btn3.getIcon() == zombieamover){
+                botnfrentez = btn3;
+            }
+        else if(btn4.getIcon() == zombieamover){
+               botnfrentez = btn4;
+                
+            }
+        else if(btn5.getIcon() == zombieamover){
+                botnfrentez = btn5;
+                
+            }
+        else if(btn6.getIcon() == zombieamover){
+                botnfrentez = btn6;
+                
+            }
+        else if(btn7.getIcon() == zombieamover){
+                botnfrentez = btn7;
+                
+            }
+        else if(btn8.getIcon() == zombieamover){
+                botnfrentez = btn8;
+                
+            }
+        if(btn10.getIcon() == zombieamover){
+                botnfrentez = btn10;
+                
+            }
+        else if(btn11.getIcon() == zombieamover){
+                botnfrentez = btn11;
+                
+            }
+        else if(btn12.getIcon() == zombieamover){
+                botnfrentez = btn12;
+                
+            }
+        else if(btn13.getIcon() == zombieamover){
+                botnfrentez = btn13;
+                
+            }
+        else if(btn14.getIcon() == zombieamover){
+               botnfrentez = btn14;
+                
+            }
+        else if(btn15.getIcon() == zombieamover){
+                botnfrentez = btn15;
+                
+            }
+        else if(btn16.getIcon() == zombieamover){
+                botnfrentez = btn16;
+                
+            }
+        if(btn22.getIcon() == zombieamover){
+                botnfrentez = btn22;
+                
+            }
+        else if(btn23.getIcon() == zombieamover){
+               botnfrentez = btn23;
+               
+            }
+        else if(btn24.getIcon() == zombieamover){
+                botnfrentez = btn24;
+                
+            }
+        if(btn32.getIcon() == zombieamover){
+                botnfrentez = btn32;
+                
+            }
+        if(btn40.getIcon() == zombieamover){
+                botnfrentez = btn40;
+                
+            }
+        return botnfrentez;
+    }//devuelve la casilla en el que n zombie se encuentra
     private void movzombien(ImageIcon zombieamover){
-
         if(btn2.getIcon() == zombieamover && btn1.getIcon() == def){
                 btn1.setIcon(zombieamover);
-                set_casilla(btn2,zombieamover);
+                set_casilla(btn2,zombieamover); 
+                mover = 1;
             }
         else if(btn3.getIcon() == zombieamover&& btn2.getIcon() == def){
                 btn2.setIcon(zombieamover);
                 set_casilla(btn3,zombieamover);
+                mover = 1;
             }
         else if(btn4.getIcon() == zombieamover&& btn3.getIcon() == def){
                 btn3.setIcon(zombieamover);
                 set_casilla(btn4,zombieamover);
+                mover = 1;
             }
         else if(btn5.getIcon() == zombieamover&& btn4.getIcon() == def){
                 btn4.setIcon(zombieamover);
                 set_casilla(btn5,zombieamover);
+                mover = 1;
             }
         else if(btn6.getIcon() == zombieamover&& btn5.getIcon() == def){
                 btn5.setIcon(zombieamover);
                 set_casilla(btn6,zombieamover);
+                mover = 1;
             }
         else if(btn7.getIcon() == zombieamover&& btn6.getIcon() == def){
                 btn6.setIcon(zombieamover);
                 set_casilla(btn7,zombieamover);
+                mover = 1;
             }
         else if(btn8.getIcon() == zombieamover&& btn7.getIcon() == def){
                 btn7.setIcon(zombieamover);
                 set_casilla(btn8,zombieamover);
+                mover = 1;
             }
         if(btn10.getIcon() == zombieamover&& btn9.getIcon() == def){
                 btn9.setIcon(zombieamover);
                 set_casilla(btn10,zombieamover);
+                mover = 1;
             }
         else if(btn11.getIcon() == zombieamover&& btn10.getIcon() == def){
                 btn10.setIcon(zombieamover);
                 set_casilla(btn11,zombieamover);
+                mover = 1;
             }
         else if(btn12.getIcon() == zombieamover&& btn11.getIcon() == def){
                 btn11.setIcon(zombieamover);
                 set_casilla(btn12,zombieamover);
+                mover = 1;
             }
         else if(btn13.getIcon() == zombieamover&& btn12.getIcon() == def){
                 btn12.setIcon(zombieamover);
                 set_casilla(btn13,zombieamover);
+                mover = 1;
             }
         else if(btn14.getIcon() == zombieamover&& btn13.getIcon() == def){
                 btn13.setIcon(zombieamover);
                 set_casilla(btn14,zombieamover);
+                mover = 1;
             }
         else if(btn15.getIcon() == zombieamover&& btn14.getIcon() == def){
                 btn14.setIcon(zombieamover);
                 set_casilla(btn15,zombieamover);
+                mover = 1;
             }
         else if(btn16.getIcon() == zombieamover&& btn16.getIcon() == def){
                 btn15.setIcon(zombieamover);
                 set_casilla(btn16,zombieamover);
+                mover = 1;
             }
         if(btn22.getIcon() == zombieamover&& btn14.getIcon() == def){
                 btn14.setIcon(zombieamover);
                 set_casilla(btn22,zombieamover);
+                mover = 1;
+                
             }
         else if(btn23.getIcon() == zombieamover&& btn22.getIcon() == def){
                 btn22.setIcon(zombieamover);
                 set_casilla(btn23,zombieamover);
+                mover = 1;
+               
             }
         else if(btn24.getIcon() == zombieamover&& btn23.getIcon() == def){
                 btn23.setIcon(zombieamover);
                 set_casilla(btn24,zombieamover);
+                mover = 1;
+                
             }
         if(btn32.getIcon() == zombieamover&& btn24.getIcon() == def){
                 btn24.setIcon(zombieamover);
                 set_casilla(btn32,zombieamover);
+                mover = 1;
+                
             }
         if(btn40.getIcon() == zombieamover&& btn32.getIcon() == def){
                 btn32.setIcon(zombieamover);
                 set_casilla(btn40,zombieamover);
+                mover = 1;
             }
+    }
+    private void zombieAtack(){
+        //flashzombie
+        if(casillasZ(zombiebase) == btn2 && btn1.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn3 && btn2.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn4 && btn3.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn3.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn5 && btn4.getIcon() == shooter){
+            tirador1.vida = (tirador1.vida - (flash.dano * flash.dañodoble));
+            if(tirador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn6 && btn5.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn5.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn7 && btn6.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn8 && btn7.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn10 && btn9.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn9.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn11 && btn10.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn10.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn12 && btn11.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn11.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn13 && btn12.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn12.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn14 && btn13.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn13.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn15 && btn14.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn14.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn16 && btn15.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn15.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn18 && btn17.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn17.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn23 && btn22.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn22.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn24 && btn23.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn26 && btn25.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn25.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn27 && btn26.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn30 && btn29.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            if(tirador1.vida <= 0){
+                btn29.setIcon(def);
+            }
+        }
+        //
+        //
+        else if(casillasZ(zombiebase) == btn2 && btn1.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn3 && btn2.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(tirador1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn4 && btn3.getIcon() == explorador1){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn3.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn5 && btn4.getIcon() == explorador){
+            explorador1.vida = (explorador1.vida - (flash.dano * flash.dañodoble));
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn6 && btn5.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn5.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn7 && btn6.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn8 && btn7.getIcon() == explorador){
+            explorador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn10 && btn9.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn9.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn11 && btn10.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn10.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn12 && btn11.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn11.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn13 && btn12.getIcon() ==explorador){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn12.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn14 && btn13.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn13.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn15 && btn14.getIcon() == explorador1){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn14.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn16 && btn15.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn15.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn18 && btn17.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn17.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn23 && btn22.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn22.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn24 && btn23.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn26 && btn25.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn25.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn27 && btn26.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn30 && btn29.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn29.setIcon(def);
+            }
+        }
+        //
+        //
+        if(casillasZ(zombiebase) == btn2 && btn1.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn3 && btn2.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn4 && btn3.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn3.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn5 && btn4.getIcon() == ninja){
+            ninja1.vida = (ninja1.vida - (flash.dano * flash.dañodoble));
+            if(ninja1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn6 && btn5.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn5.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn7 && btn6.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn8 && btn7.getIcon() == ninja1){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn10 && btn9.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn9.setIcon(def);
+            }
+        }
+        else if(casillasZ(zombiebase) == btn11 && btn10.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn10.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn12 && btn11.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn11.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn13 && btn12.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn12.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn14 && btn13.getIcon() == ninja1){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn13.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn15 && btn14.getIcon() == ninja1){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn14.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn16 && btn15.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn15.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn18 && btn17.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn17.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn23 && btn22.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn22.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn24 && btn23.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn26 && btn25.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn25.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn27 && btn26.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (flash.dano * flash.dañodoble);
+            if(ninja1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(zombiebase) == btn30 && btn29.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn29.setIcon(def);
+            }
+        }
+        //tankzombie
+        //
+        //
+        if(casillasZ(tankzombie) == btn2 && btn1.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn3 && btn2.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn4 && btn3.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn3.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn5 && btn4.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn6 && btn5.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn5.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn7 && btn6.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn8 && btn7.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn10 && btn9.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn9.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn11 && btn10.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn10.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn12 && btn11.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn11.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn13 && btn12.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn12.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn14 && btn13.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn13.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn15 && btn14.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn14.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn16 && btn15.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn15.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn18 && btn17.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn17.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn23 && btn22.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn22.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn24 && btn23.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn26 && btn25.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn25.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn27 && btn26.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn30 && btn29.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - tank.dano;
+            if(tirador1.vida <= 0){
+                btn29.setIcon(def);
+            }
+        }
+        //
+        //
+        else if(casillasZ(tankzombie) == btn2 && btn1.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn3 && btn2.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(tirador1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn4 && btn3.getIcon() == explorador1){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn3.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn5 && btn4.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn6 && btn5.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn5.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn7 && btn6.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn8 && btn7.getIcon() == explorador){
+            explorador1.vida = tirador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn10 && btn9.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn9.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn11 && btn10.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn10.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn12 && btn11.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn11.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn13 && btn12.getIcon() ==explorador){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn12.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn14 && btn13.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn13.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn15 && btn14.getIcon() == explorador1){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn14.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn16 && btn15.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn15.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn18 && btn17.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn17.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn23 && btn22.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn22.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn24 && btn23.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn26 && btn25.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn25.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn27 && btn26.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn30 && btn29.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn29.setIcon(def);
+            }
+        }
+        //
+        //
+         else if(casillasZ(tankzombie) == btn2 && btn1.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn3 && btn2.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn4 && btn3.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn3.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn5 && btn4.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn6 && btn5.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn5.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn7 && btn6.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn8 && btn7.getIcon() == ninja1){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn10 && btn9.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn9.setIcon(def);
+            }
+        }
+        else if(casillasZ(tankzombie) == btn11 && btn10.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn10.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn12 && btn11.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn11.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn13 && btn12.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn12.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn14 && btn13.getIcon() == ninja1){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn13.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn15 && btn14.getIcon() == ninja1){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn14.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn16 && btn15.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn15.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn18 && btn17.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn17.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn23 && btn22.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn22.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn24 && btn23.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn26 && btn25.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn25.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn27 && btn26.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(tankzombie) == btn30 && btn29.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - tank.dano;
+            if(ninja1.vida <= 0){
+                btn29.setIcon(def);
+            }
+        }
+        //superzombie
+        //
+        //
+         if(casillasZ(megazombie) == btn2 && btn1.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn3 && btn2.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn4 && btn3.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn3.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn5 && btn4.getIcon() == shooter){
+            tirador1.vida = (tirador1.vida - (superz.dano + superz.fuerza));
+            if(tirador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn6 && btn5.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn5.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn7 && btn6.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn8 && btn7.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn10 && btn9.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn9.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn11 && btn10.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn10.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn12 && btn11.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn11.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn13 && btn12.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn12.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn14 && btn13.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn13.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn15 && btn14.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn14.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn16 && btn15.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn15.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn18 && btn17.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn17.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn23 && btn22.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn22.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn24 && btn23.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn26 && btn25.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn25.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn27 && btn26.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn30 && btn29.getIcon() == shooter){
+            tirador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            if(tirador1.vida <= 0){
+                btn29.setIcon(def);
+            }
+        }
+        //
+        //
+        else if(casillasZ(megazombie) == btn2 && btn1.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn3 && btn2.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(tirador1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn4 && btn3.getIcon() == explorador1){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn3.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn5 && btn4.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn6 && btn5.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn5.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn7 && btn6.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn8 && btn7.getIcon() == explorador){
+            explorador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn10 && btn9.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn9.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn11 && btn10.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn10.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn12 && btn11.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn11.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn13 && btn12.getIcon() ==explorador){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn12.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn14 && btn13.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn13.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn15 && btn14.getIcon() == explorador1){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn14.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn16 && btn15.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn15.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn18 && btn17.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn17.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn23 && btn22.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn22.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn24 && btn23.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn26 && btn25.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn25.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn27 && btn26.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn30 && btn29.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida += explorador1.regeneracionVida;
+            if(explorador1.vida <= 0){
+                btn29.setIcon(def);
+            }
+        }
+        //
+        //
+        if(casillasZ(megazombie) == btn2 && btn1.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn3 && btn2.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn1.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn4 && btn3.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn3.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn5 && btn4.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn6 && btn5.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn5.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn7 && btn6.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn8 && btn7.getIcon() == ninja1){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn10 && btn9.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn9.setIcon(def);
+            }
+        }
+        else if(casillasZ(megazombie) == btn11 && btn10.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn10.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn12 && btn11.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn11.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn13 && btn12.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn12.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn14 && btn13.getIcon() == ninja1){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn13.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn15 && btn14.getIcon() == ninja1){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn14.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn16 && btn15.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn15.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn18 && btn17.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn17.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn23 && btn22.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn22.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn24 && btn23.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn26 && btn25.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn25.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn27 && btn26.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn4.setIcon(def);
+            }
+        }
+         else if(casillasZ(megazombie) == btn30 && btn29.getIcon() == ninja){
+            ninja1.vida = ninja1.vida - (superz.dano + superz.fuerza);
+            if(ninja1.vida <= 0){
+                btn29.setIcon(def);
+            }
+        }
     }
     private void determinarZombie(ImageIcon zombien, JButton spawn){
         if(spawn.getIcon()==def){
@@ -205,14 +1466,16 @@ public class tablero extends javax.swing.JFrame {
             movzombien(zombiebase);
             movzombien(tankzombie);
             movzombien(megazombie);
+            zombieAtack();
             if(znum != 3){
-                determinarZombie(zombie,setspawn);
+               determinarZombie(zombie,setspawn);
             }
             defz++;
             btonspawn++;
             turno1 = 1;
             turno2 = 1;
             turno3 = 1;
+            
         }
     }
     private void setestats(){
@@ -243,8 +1506,8 @@ public class tablero extends javax.swing.JFrame {
             zdano.setText("Daño: "+ tank.dano);
         }
         if(zaatacar == 3){
-            zvida.setText("Vida: " + flash.vida);
-            zdano.setText("Daño: "+ flash.dano);
+            zvida.setText("Vida: " + superz.vida);
+            zdano.setText("Daño: "+ superz.dano);
         }
     }
     private void set_casilla(JButton casilla,ImageIcon icono){
@@ -252,16 +1515,15 @@ public class tablero extends javax.swing.JFrame {
               casilla.setIcon(def);
         }
     }
-    private void set_casilla_d(JButton casilla,ImageIcon icono){
-        if(casilla.getIcon()==icono){
-       
-              casilla.setIcon(door);
+    private void set_casillasd(){
+        if(btn28.getIcon()==def){
+              btn28.setIcon(barr);
         }
-    }
-    private void set_casilla_b(JButton casilla,ImageIcon icono){
-        if(casilla.getIcon()==icono){
-       
-              casilla.setIcon(barr);
+        if(btn21.getIcon()==def){
+              btn21.setIcon(door);
+        }
+        if(btn39.getIcon()==def){
+              btn39.setIcon(door);
         }
     }
     private void bt4config(JButton boton,int bb,JButton btnc1,JButton btnc2,JButton btnc3,JButton btnc4){
@@ -271,7 +1533,8 @@ public class tablero extends javax.swing.JFrame {
         if(boton.getIcon()== zombiebase){zaatacar=1;}
         if(boton.getIcon()== tankzombie){zaatacar=2;}
         if(boton.getIcon()== megazombie){zaatacar=3;}
-        if(personajeClick == 1 && bb==1 && boton.getIcon()==def && turno1 == 1){
+        else if(personajeClick == 1 && bb==1 && turno1 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
+                && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             sh.setVisible(false);
             boton.setIcon(shooter);
             set_casilla(btnc1,shooter);
@@ -280,7 +1543,8 @@ public class tablero extends javax.swing.JFrame {
             set_casilla(btnc4,shooter);  
             turno1 = 0;
         }
-        else if(personajeClick == 3 && bb==1 && boton.getIcon()==def && turno3 == 1){
+        else if(personajeClick == 3 && bb==1 && turno3 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
+                && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             explo.setVisible(false);
             boton.setIcon(explorador);
             set_casilla(btnc1,explorador);
@@ -289,7 +1553,8 @@ public class tablero extends javax.swing.JFrame {
             set_casilla(btnc4,explorador);
             turno3 = 0;
         }
-        else if(personajeClick == 2 && bb==1 && boton.getIcon()==def && turno2 == 1){
+        else if(personajeClick == 2 && bb==1 && turno2 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
+                && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             nin.setVisible(false);
             boton.setIcon(ninja);
             set_casilla(btnc1,ninja);
@@ -298,6 +1563,7 @@ public class tablero extends javax.swing.JFrame {
             set_casilla(btnc4,ninja);
             turno2 = 0;
         }
+        set_casillasd();
     }
     private void todos_cero(){
         b1 = 0;
@@ -348,7 +1614,8 @@ public class tablero extends javax.swing.JFrame {
         if(boton.getIcon()== zombiebase){zaatacar=1;}
         if(boton.getIcon()== tankzombie){zaatacar=2;}
         if(boton.getIcon()== megazombie){zaatacar=3;}
-        if(personajeClick == 1 && bb==1 && boton.getIcon()==def && turno1 == 1){
+        else if(personajeClick == 1 && bb==1 && turno1 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
+                && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             sh.setVisible(false);
             boton.setIcon(shooter);
             set_casilla(btnc1,shooter);
@@ -356,7 +1623,8 @@ public class tablero extends javax.swing.JFrame {
             set_casilla(btnc3,shooter);
             turno1 = 0;
         }
-        else if(personajeClick == 3 && bb==1 && boton.getIcon()==def && turno3 == 1){
+        else if(personajeClick == 3 && bb==1 && turno3 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
+                && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             explo.setVisible(false);
             boton.setIcon(explorador);
             set_casilla(btnc1,explorador);
@@ -364,7 +1632,8 @@ public class tablero extends javax.swing.JFrame {
             set_casilla(btnc3,explorador);  
             turno3 = 0;
         }
-        else if(personajeClick == 2 && bb==1 && boton.getIcon()==def && turno2 == 1){
+        else if(personajeClick == 2 && bb==1 && turno2 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
+                && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             nin.setVisible(false);
             boton.setIcon(ninja);
             set_casilla(btnc1,ninja);
@@ -372,7 +1641,7 @@ public class tablero extends javax.swing.JFrame {
             set_casilla(btnc3,ninja);  
             turno2 = 0;
         }
-        
+        set_casillasd();
     }
     private void bt2config(JButton boton,int bb,JButton btnc1,JButton btnc2){
         if(boton.getIcon()==shooter){personajeClick = 1;}
@@ -381,113 +1650,61 @@ public class tablero extends javax.swing.JFrame {
         if(boton.getIcon()== zombiebase){zaatacar=1;}
         if(boton.getIcon()== tankzombie){zaatacar=2;}
         if(boton.getIcon()== megazombie){zaatacar=3;}
-        if(personajeClick == 1 && bb==1 && boton.getIcon()==def && turno1 == 1){
+        else if(personajeClick == 1 && bb==1 && turno1 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
+                && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             sh.setVisible(false);
             boton.setIcon(shooter);
             set_casilla(btnc1,shooter);
             set_casilla(btnc2,shooter);
             turno1 = 0;
         }
-        else if(personajeClick == 3 && bb==1 && boton.getIcon()==def && turno3==1){
+        else if(personajeClick == 3 && bb==1 && turno3 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
+                && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             explo.setVisible(false);
             boton.setIcon(explorador);
             set_casilla(btnc1,explorador);
-            set_casilla(btnc2,explorador);                
+            set_casilla(btnc2,explorador);      
             turno3 = 0;
         }
-        else if(personajeClick == 2 && bb==1 && boton.getIcon()==def && turno2 ==1){
+        else if(personajeClick == 2 && bb==1 && turno2 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
+                && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             nin.setVisible(false);
             boton.setIcon(ninja);
             set_casilla(btnc1,ninja);
-            set_casilla(btnc2,ninja);     
+            set_casilla(btnc2,ninja);       
             turno2 = 0;
         }
+        set_casillasd();
     }
-    private void bt3configdoor(JButton boton,int bb,JButton btnc1,JButton btnc2,JButton btnc3){
+    private void bt1config(JButton boton,int bb,JButton btnc1){
         if(boton.getIcon()==shooter){personajeClick = 1;}
-        if(boton.getIcon()==explorador){personajeClick = 3;}
         if(boton.getIcon()==ninja){personajeClick = 2;}
+        if(boton.getIcon()==explorador){personajeClick = 3;}
         if(boton.getIcon()== zombiebase){zaatacar=1;}
         if(boton.getIcon()== tankzombie){zaatacar=2;}
         if(boton.getIcon()== megazombie){zaatacar=3;}
-        if(personajeClick == 1 && bb==1 && boton.getIcon()==door && turno1 == 1){
+        else if(personajeClick == 1 && bb==1 && turno1 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
+                && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             sh.setVisible(false);
             boton.setIcon(shooter);
-            set_casilla_d(btnc1,shooter);
-            set_casilla_d(btnc2,shooter);
-            set_casilla_d(btnc3,shooter); 
+            set_casilla(btnc1,shooter);
             turno1 = 0;
         }
-        else if(personajeClick == 3 && bb==1 && boton.getIcon()==door && turno3 == 1){
+        else if(personajeClick == 3 && bb==1 && turno3 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
+                && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             explo.setVisible(false);
             boton.setIcon(explorador);
-            set_casilla_d(btnc1,explorador);
-            set_casilla_d(btnc2,explorador);     
-            set_casilla_d(btnc3,explorador);  
+            set_casilla(btnc1,explorador);     
             turno3 = 0;
         }
-        else if(personajeClick == 2 && bb==1 && boton.getIcon()==door && turno2 == 1){
+        else if(personajeClick == 2 && bb==1 && turno2 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
+                && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             nin.setVisible(false);
             boton.setIcon(ninja);
-            set_casilla_d(btnc1,ninja);
-            set_casilla_d(btnc2,ninja);     
-            set_casilla_d(btnc3,ninja); 
-            turno2 =0;
-        }
-    }
-    private void bt3configbarr(JButton boton,int bb,JButton btnc1,JButton btnc2,JButton btnc3){
-        if(boton.getIcon()==shooter){personajeClick = 1;}
-        if(boton.getIcon()==explorador){personajeClick = 3;}
-        if(boton.getIcon()==ninja){personajeClick = 2;}
-        
-        if(personajeClick == 1 && bb==1 && boton.getIcon()==barr && turno1 == 1){
-            sh.setVisible(false);
-            boton.setIcon(shooter);
-            set_casilla_b(btnc1,shooter);
-            set_casilla_b(btnc2,shooter);
-            set_casilla_b(btnc3,shooter); 
-            turno1 = 0;
-        }
-        else if(personajeClick == 3 && bb==1 && boton.getIcon()==barr && turno3 == 1){
-            explo.setVisible(false);
-            boton.setIcon(explorador);
-            set_casilla_b(btnc1,explorador);
-            set_casilla_b(btnc2,explorador);
-            set_casilla_b(btnc3,explorador);  
-            turno3 = 0;
-        }
-        else if(personajeClick == 2 && bb==1 && boton.getIcon()==barr && turno2 == 1){
-            nin.setVisible(false);
-            boton.setIcon(ninja);
-            set_casilla_b(btnc1,ninja);
-            set_casilla_b(btnc2,ninja);
-            set_casilla_b(btnc3,ninja);  
+            set_casilla(btnc1,ninja);
             turno2 = 0;
         }
-    }
-    private void bt1configdoor(JButton boton,int bb,JButton btnc1){
-        if(boton.getIcon()==shooter){personajeClick = 1;}
-        if(boton.getIcon()==explorador){personajeClick = 3;}
-        if(boton.getIcon()==ninja){personajeClick = 2;}
-        
-        if(personajeClick == 1 && bb==1 && boton.getIcon()==door){
-            sh.setVisible(false);
-            boton.setIcon(shooter);
-            set_casilla_d(btnc1,shooter);
-            turno1 = 0;
-        }
-        else if(personajeClick == 3 && bb==1 && boton.getIcon()==door){
-            explo.setVisible(false);
-            boton.setIcon(explorador);
-            set_casilla_d(btnc1,explorador);
-            turno3 = 0;
-        }
-        else if(personajeClick == 2 && bb==1 && boton.getIcon()==door){
-            nin.setVisible(false);
-            boton.setIcon(ninja);
-            set_casilla_d(btnc1,ninja);
-            turno2 = 0;
-        }
+        set_casillasd();
     }
     private void bt4Atackconfig(JButton boton,int bb,JButton btnc1,JButton btnc2,JButton btnc3,JButton btnc4){
         if(boton.getIcon()==shooter){personajeClick = 1;}
@@ -505,18 +1722,45 @@ public class tablero extends javax.swing.JFrame {
             zaatacar = 3;
             atack.setVisible(true);
         }
+        else{
+            atack.setVisible(false);
+        }
     }
     private void bt3Atackconfig(JButton boton,int bb,JButton btnc1,JButton btnc2,JButton btnc3){
         if(boton.getIcon()==shooter){personajeClick = 1;}
         if(boton.getIcon()==ninja){personajeClick = 2;}
         if(boton.getIcon()==explorador){personajeClick = 3;}
         if(btnc1.getIcon() == zombiebase || btnc2.getIcon() == zombiebase || btnc3.getIcon() == zombiebase){
-            zaatacar = 1;
             atack.setVisible(true);
         }
         else if(btnc1.getIcon() == tankzombie || btnc2.getIcon() == tankzombie || btnc3.getIcon() == tankzombie){
+            atack.setVisible(true);
+        }
+         else if(btnc1.getIcon() == megazombie || btnc2.getIcon() == megazombie || btnc3.getIcon() == megazombie){
+            atack.setVisible(true);
+        }
+        else{
+            atack.setVisible(false);
+        }
+    }
+    private void bt2Atackconfig(JButton boton,int bb,JButton btnc1,JButton btnc2){
+        if(boton.getIcon()==shooter){personajeClick = 1;}
+        if(boton.getIcon()==ninja){personajeClick = 2;}
+        if(boton.getIcon()==explorador){personajeClick = 3;}
+        if(btnc1.getIcon() == zombiebase || btnc2.getIcon() == zombiebase ){
+            zaatacar = 1;
+            atack.setVisible(true);
+        }
+        else if(btnc1.getIcon() == tankzombie || btnc2.getIcon() == tankzombie){
             zaatacar = 2;
             atack.setVisible(true);
+        }
+         else if(btnc1.getIcon() == megazombie || btnc2.getIcon() == megazombie ){
+            zaatacar = 3;
+            atack.setVisible(true);
+        }
+        else{
+            atack.setVisible(false);
         }
     }
     @SuppressWarnings("unchecked")
@@ -1140,6 +2384,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn1MouseClicked
         bt2config(btn1,b1,btn2,btn9);
         setestats();
+        bt2Atackconfig(btn1,b1,btn2,btn9);
         todos_cero();
         b2 = 1;
         b9 = 1;
@@ -1161,6 +2406,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn2MouseClicked
         bt3config(btn2,b2,btn1,btn3,btn10);
         setestats();
+        bt3Atackconfig(btn2,b2,btn1,btn3,btn10);
         todos_cero();
         b1 = 1;
         b3 = 1;
@@ -1230,6 +2476,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn8MouseClicked
        bt2config(btn8,b8,btn7,btn16);
        setestats();
+       bt2Atackconfig(btn8,b8,btn7,btn16);
        todos_cero();
        b7 = 1;
        b16 = 1;
@@ -1262,6 +2509,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn11MouseClicked
         bt3config(btn11,b11,btn10,btn12,btn3);
         setestats();
+        bt3Atackconfig(btn11,b11,btn10,btn12,btn3);
         todos_cero();
         b10 = 1;
         b12 = 1;
@@ -1272,6 +2520,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn12MouseClicked
         bt4config(btn12,b12,btn11,btn4,btn20,btn13);
         setestats();
+        bt4Atackconfig(btn12,b12,btn11,btn4,btn20,btn13);
         todos_cero();
         b4 = 1;
         b11 = 1;
@@ -1283,6 +2532,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn13MouseClicked
         bt4config(btn13,b13,btn12,btn5,btn14,btn21);
         setestats();
+        bt4Atackconfig(btn13,b13,btn12,btn5,btn14,btn21);
         todos_cero();
         b12 = 1;
         b5 = 1;
@@ -1294,6 +2544,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn14MouseClicked
         bt4config(btn14,b14,btn15,btn22,btn13,btn6);
         setestats();
+        bt4Atackconfig(btn14,b14,btn15,btn22,btn13,btn6);
         todos_cero();
         b15 = 1;
         b22 = 1;
@@ -1305,6 +2556,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn15MouseClicked
         bt4config(btn15,b15,btn14,btn7,btn16,btn23);
         setestats();
+        bt4Atackconfig(btn15,b15,btn14,btn7,btn16,btn23);
         todos_cero();
         b14 = 1;
         b7 = 1;
@@ -1316,6 +2568,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn16MouseClicked
         bt3config(btn16,b16,btn15,btn8,btn24);
         setestats();
+        bt3Atackconfig(btn16,b16,btn15,btn8,btn24);
         todos_cero();
         b15 = 1;
         b8 = 1;
@@ -1326,6 +2579,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn17MouseClicked
         bt3config(btn17,b17,btn9,btn25,btn18);
         setestats();
+        bt3Atackconfig(btn17,b17,btn9,btn25,btn18);
         todos_cero();
         b25 = 1;
         b9 = 1;
@@ -1336,6 +2590,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn18MouseClicked
         bt3config(btn18,b18,btn17,btn10,btn26);
         setestats();
+        bt3Atackconfig(btn18,b18,btn17,btn10,btn26);
         todos_cero();
         b17 = 1;
         b10 = 1;
@@ -1346,6 +2601,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn20MouseClicked
         bt3config(btn20,b20,btn12,btn21,btn28);
         setestats();
+        bt3Atackconfig(btn20,b20,btn12,btn21,btn28);
         todos_cero();
         b12 = 1;
         b21= 1;
@@ -1354,8 +2610,9 @@ public class tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_btn20MouseClicked
 
     private void btn21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn21MouseClicked
-        bt3configdoor(btn21,b21,btn13,btn20,btn29);
+        bt3config(btn21,b21,btn13,btn20,btn29);
         setestats();
+        bt3Atackconfig(btn21,b21,btn13,btn20,btn29);
         todos_cero();
         b13 = 1;
         b20 = 1;
@@ -1366,6 +2623,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn22MouseClicked
         bt3config(btn22,b22,btn23,btn14,btn30);
         setestats();
+        bt3Atackconfig(btn22,b22,btn23,btn14,btn30);
         todos_cero();
         b23 = 1;
         b14 = 1;
@@ -1376,6 +2634,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn23MouseClicked
         bt3config(btn23,b23,btn22,btn15,btn24);
         setestats();
+        bt3Atackconfig(btn23,b23,btn22,btn15,btn24);
         todos_cero();
         b22 = 1;
         b15 = 1;
@@ -1386,6 +2645,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn24MouseClicked
         bt3config(btn24,b24,btn23,btn16,btn32);
         setestats();
+        bt3Atackconfig(btn24,b24,btn23,btn16,btn32);
         todos_cero();
         b23 = 1;
         b16 = 1;
@@ -1396,6 +2656,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn25MouseClicked
         bt3config(btn25,b25,btn26,btn17,btn33);
         setestats();
+        bt3Atackconfig(btn25,b25,btn26,btn17,btn33);
         todos_cero();
         b26 = 1;
         b17 = 1;
@@ -1406,6 +2667,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn26MouseClicked
         bt4config(btn26,b26,btn25,btn27,btn18,btn34);
         setestats();
+        bt4Atackconfig(btn26,b26,btn25,btn27,btn18,btn34);
         todos_cero();
         b25 = 1;
         b27 = 1;
@@ -1417,6 +2679,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn27MouseClicked
         bt2config(btn27,b27,btn26,btn28);
         setestats();
+        bt2Atackconfig(btn27,b27,btn26,btn28);
         todos_cero();
         b26 = 1;
         b28 = 1;
@@ -1428,8 +2691,9 @@ public class tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_btn28ActionPerformed
 
     private void btn28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn28MouseClicked
-        bt3configbarr(btn28,b28,btn27,btn20,btn29);
+        bt3config(btn28,b28,btn27,btn20,btn29);
         setestats();
+        bt3Atackconfig(btn28,b28,btn27,btn20,btn29);
         todos_cero();
         b27 = 1;
         b20 = 1;
@@ -1439,6 +2703,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn29MouseClicked
         bt4config(btn29,b29,btn28,btn30,btn37,btn21);
         setestats();
+        bt4Atackconfig(btn29,b29,btn28,btn30,btn37,btn21);
         todos_cero();
         b28 = 1;
         b30 = 1;
@@ -1450,6 +2715,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn30MouseClicked
         bt3config(btn30,b30,btn29,btn22,btn38);
         setestats();
+        bt3Atackconfig(btn30,b30,btn29,btn22,btn38);
         todos_cero();
         b29 = 1;
         b22 = 1;
@@ -1460,6 +2726,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn32MouseClicked
         bt2config(btn32,b32,btn24,btn40);
         setestats();
+        bt2Atackconfig(btn32,b32,btn24,btn40);
         todos_cero();
         b24 = 1;
         b40 = 1;
@@ -1469,6 +2736,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn33MouseClicked
         bt2config(btn33,b33,btn25,btn34);
         setestats();
+        bt2Atackconfig(btn33,b33,btn25,btn34);
         todos_cero();
         b25 = 1;
         b34 = 1;
@@ -1478,6 +2746,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn34MouseClicked
         bt2config(btn34,b34,btn26,btn33);
         setestats();
+        bt2Atackconfig(btn34,b34,btn26,btn33);
         todos_cero();
         b26 = 1;
         b33 = 1;
@@ -1487,6 +2756,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn37MouseClicked
         bt2config(btn37,b37,btn29,btn38);
         setestats();
+        bt2Atackconfig(btn37,b37,btn29,btn38);
         todos_cero();
         b29 = 1;
         b38 = 1;
@@ -1496,6 +2766,7 @@ public class tablero extends javax.swing.JFrame {
     private void btn38MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn38MouseClicked
         bt3config(btn38,b38,btn37,btn39,btn30);
         setestats();
+        bt3Atackconfig(btn38,b38,btn37,btn39,btn30);
         todos_cero();
         b37 = 1;
         b39 = 1;
@@ -1504,7 +2775,7 @@ public class tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_btn38MouseClicked
 
     private void btn39MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn39MouseClicked
-        bt1configdoor(btn39,b39,btn38);
+        bt1config(btn39,b39,btn38);
         setestats();
         todos_cero();
         b38 = 1;
@@ -1512,18 +2783,7 @@ public class tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_btn39MouseClicked
 
     private void btn40MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn40MouseClicked
-        if(btn40.getIcon()==shooter){personajeClick = 1;}
-        if(btn40.getIcon()==explorador){personajeClick = 2;}
-        if(personajeClick == 1 && b40==1 && btn40.getIcon()==def){
-            sh.setVisible(false);
-            btn40.setIcon(shooter);
-            set_casilla(btn32,shooter);
-        }
-        else if(personajeClick == 2 && b40==1 && btn40.getIcon()==def){
-            nin.setVisible(false);
-            btn40.setIcon(explorador);
-            set_casilla(btn32,explorador);
-        }
+        bt1config(btn40,b40,btn32);
         setestats();
         b32 = 1;
         moverzombie();
@@ -1549,90 +2809,119 @@ public class tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_exploMouseClicked
 
     private void atackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_atackMouseClicked
-        if(personajeClick == 1 && zaatacar == 1){
+        if(personajeClick == 1 && zaatacar == 1 && turno1 == 1){
             flash.vida = flash.vida - (tirador1.ataque + tirador1.critico);
             if(tirador1.tiroExtra==1){
                 flash.vida = flash.vida - (tirador1.ataque + tirador1.critico);
             }
             flash.vida = flash.vida + flash.regeneracion;
             atack.setVisible(false);
-            if(flash.vida == 0){
-            flash.vida = 50;
-            znum = znum - 1;
+            if(flash.vida <= 0){
+                flash.vida = 50;
+                znum = znum - 1;
+                casillasZ(zombiebase);
+                botnfrentez.setIcon(gun);
             }
+            turno1 = 0;
         }
-        if(personajeClick == 1 && zaatacar == 2){
+        else if(personajeClick == 1 && zaatacar == 2 && turno1 == 1){
             tank.vida = tank.vida - (tirador1.ataque + tirador1.critico - tank.armadura);
             if(tirador1.tiroExtra==1){
                 tank.vida = tank.vida - (tirador1.ataque + tirador1.critico - tank.armadura);
             }
             atack.setVisible(false);
-            if(tank.vida == 0){
+            if(tank.vida <= 0){
             tank.vida = 50;
             znum = znum - 1;
+            casillasZ(tankzombie);
+            botnfrentez.setIcon(sword);
+            
             }
+            turno1 = 0;
         }
-        if(personajeClick == 1 && zaatacar == 3){
+        else if(personajeClick == 1 && zaatacar == 3 && turno1 == 1){
             superz.vida = superz.vida - (tirador1.ataque + tirador1.critico);
             if(tirador1.tiroExtra==1){
                 superz.vida = superz.vida - (tirador1.ataque + tirador1.critico);
             }
             atack.setVisible(false);
-            if(superz.vida == 0){
+            if(superz.vida <= 0){
             superz.vida = 60 + superz.vidaExtra;
             znum = znum - 1;
+            casillasZ(megazombie);
+            botnfrentez.setIcon(def);
             }
+            turno1 = 0;
         }
-        if(personajeClick == 2 && zaatacar == 1){
+        else if(personajeClick == 2 && zaatacar == 1 && turno2 == 1){
             flash.vida = flash.vida - (ninja1.ataque + ninja1.dañoExtra + ninja1.sangrado);
             flash.vida = flash.vida + flash.regeneracion;
             atack.setVisible(false);
-            if(flash.vida == 0){
+            if(flash.vida <= 0){
             flash.vida = 50;
             znum = znum - 1;
+            casillasZ(zombiebase);
+            botnfrentez.setIcon(gun);
             }
+            turno2 = 0;
         }
-        if(personajeClick == 2 && zaatacar == 2){
+        else if(personajeClick == 2 && zaatacar == 2 && turno2 == 1){
             tank.vida = tank.vida - ((ninja1.ataque + ninja1.dañoExtra + ninja1.sangrado) - tank.armadura);
             atack.setVisible(false);
-            if(tank.vida == 0){
+            if(tank.vida <= 0){
             tank.vida = 50;
             znum = znum - 1;
+            casillasZ(tankzombie);
+            botnfrentez.setIcon(sword);
             }
+            turno2 = 0;
         }
-        if(personajeClick == 2 && zaatacar == 3){
+        else if(personajeClick == 2 && zaatacar == 3 && turno2 == 1){
             superz.vida = superz.vida - (ninja1.ataque + ninja1.dañoExtra + ninja1.sangrado);
             atack.setVisible(false);
-            if(superz.vida == 0){
+            if(superz.vida <= 0){
             superz.vida = 60 + superz.vidaExtra;
             znum = znum - 1;
+            casillasZ(megazombie);
+            botnfrentez.setIcon(def);
             }
+            turno2 = 0;
         }
-        if(personajeClick == 3 && zaatacar == 1){
+        else if(personajeClick == 3 && zaatacar == 1 && turno3 == 1){
             flash.vida = flash.vida - explorador1.ataque;
             flash.vida = flash.vida + flash.regeneracion;
             atack.setVisible(false);
-            if(flash.vida == 0){
+            if(flash.vida <= 0){
             flash.vida = 50;
             znum = znum - 1;
+            casillasZ(zombiebase);
+            botnfrentez.setIcon(gun);
             }
+            turno3 = 0;
         }
-        if(personajeClick == 3 && zaatacar == 2){
+        else if(personajeClick == 3 && zaatacar == 2 && turno3 == 1){
             tank.vida = tank.vida - (explorador1.ataque - tank.armadura);
             atack.setVisible(false);
-            if(tank.vida == 0){
+            if(tank.vida <= 0){
             tank.vida = 50;
             znum = znum - 1;
+            casillasZ(tankzombie);
+            botnfrentez.setIcon(sword);
             }
+            turno3 = 0;
         }
-        if(personajeClick == 3 && zaatacar == 3){
+        else if(personajeClick == 3 && zaatacar == 3 && turno3 == 1){
             superz.vida = superz.vida - explorador1.ataque;
             atack.setVisible(false);
-            if(superz.vida == 0){
+            if(superz.vida <= 0){
             superz.vida = 60 + superz.vidaExtra;
             znum = znum - 1;
+            casillasZ(megazombie);
+            botnfrentez.setIcon(def);
             }
+            turno3 = 0;
         }
+        setestats();
     }//GEN-LAST:event_atackMouseClicked
 
 
