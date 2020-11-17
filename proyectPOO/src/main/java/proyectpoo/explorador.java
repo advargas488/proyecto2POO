@@ -3,6 +3,7 @@ package proyectpoo;
 public class explorador extends personaje {
     protected int casillasAvanzar;
     protected int regeneracionVida;
+    proteced int vidaextra;
     public explorador(int nuevoAtaque, int nuevaVida, String nuevaArma,int nuevoRango, int casillas, int nuevaRegeneracionVida, int nuevoRuido){
         super(nuevoAtaque,nuevaVida,nuevaArma,nuevoRango,nuevoRuido);
         this.casillasAvanzar = casillas;
