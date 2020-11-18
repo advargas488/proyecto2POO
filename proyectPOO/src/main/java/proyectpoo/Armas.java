@@ -9,7 +9,7 @@ public class Armas {
         this.nombre = _nombre;
         this.ataque = _ataque;
         this.nivelRuido = _nivelruido;
-        this.ataque = _rango;
+        this.rango = _rango;
     }
     public String getNombre(){
         return nombre;
