@@ -12,14 +12,40 @@ public class tablero extends javax.swing.JFrame {
         nin.setIcon(ninja);
         explo.setIcon(explorador);
         zombie = zombiebase;
-        spawn.setIcon(zombie);
+        g.setVisible(false);
+        lose.setVisible(false);
         atack.setVisible(false);
+        fitem.setVisible(false);
+        addArmas();
         
     }
+    private void addArmas(){
+        if(explorador1.arma.equals(espada.getNombre())){
+            explorador1.ataque += espada.ataque;
+            explorador1.rango += espada.rango;
+        }else if(explorador1.arma.equals(pistola.getNombre())){
+            explorador1.ataque += pistola.ataque;
+            explorador1.rango += pistola.rango;
+        }
+        if(tirador1.arma.equals(espada.getNombre())){
+            tirador1.ataque += espada.ataque;
+            tirador1.rango += espada.rango;
+        }else if(tirador1.arma.equals(pistola.getNombre())){
+            tirador1.ataque += pistola.ataque;
+            tirador1.rango += pistola.rango;
+        }
+        if(ninja1.arma.equals(espada.getNombre())){
+            ninja1.ataque += espada.ataque;
+            ninja1.rango += espada.rango;
+        }else if(ninja1.arma.equals(pistola.getNombre())){
+            ninja1.ataque += pistola.ataque;
+            ninja1.rango += pistola.rango;
+        }
+    }
     //definicion personajes
-    explorador explorador1 = new explorador(20,100,"NO",1,1,0,0);
-    tirador tirador1 = new tirador(25,100,"NO",2,0,0,1);
-    ninja ninja1 = new ninja(30,100,"NO",1,0,0,0);
+    explorador explorador1 = new explorador(20,100,"Filo infinito",1,5,0,0,0,0);
+    tirador tirador1 = new tirador(25,100,"Filo infinito",1,0,0,0,0,0);
+    ninja ninja1 = new ninja(30,100,"Filo infinito",1,0,0,0,0,0);
     //definicion de los zombies
     tankZombie tank = new tankZombie(80,10,"Filo Infinito",20,5);
     flashZombie flash = new flashZombie(80,10,"Pistola Hextech",2,1);
@@ -30,6 +56,7 @@ public class tablero extends javax.swing.JFrame {
     //para ir generando zombies distintos
     int defz = 1;
     //imagenes para la creacion del tablero, los personajes, las armas, los zombies, etc
+    
     ImageIcon sword = new ImageIcon("espada.png");
     ImageIcon gun = new ImageIcon("pistola.png");
     ImageIcon zombie = new ImageIcon();
@@ -96,8 +123,9 @@ public class tablero extends javax.swing.JFrame {
     JButton setspawn;
     //para saber cuantos zombies hay en el tablero
     int znum = 0;
+    //para determinar el boton en el que se encuentra determinado zombie
     JButton botnfrentez;
-    int mover = 0;
+
     private JButton casillasZ(ImageIcon zombieamover){
         if(btn2.getIcon() == zombieamover){
                 botnfrentez = btn2;
@@ -179,101 +207,98 @@ public class tablero extends javax.swing.JFrame {
         if(btn2.getIcon() == zombieamover && btn1.getIcon() == def){
                 btn1.setIcon(zombieamover);
                 set_casilla(btn2,zombieamover); 
-                mover = 1;
+  
             }
         else if(btn3.getIcon() == zombieamover&& btn2.getIcon() == def){
                 btn2.setIcon(zombieamover);
                 set_casilla(btn3,zombieamover);
-                mover = 1;
+               
             }
         else if(btn4.getIcon() == zombieamover&& btn3.getIcon() == def){
                 btn3.setIcon(zombieamover);
                 set_casilla(btn4,zombieamover);
-                mover = 1;
+               
             }
         else if(btn5.getIcon() == zombieamover&& btn4.getIcon() == def){
                 btn4.setIcon(zombieamover);
                 set_casilla(btn5,zombieamover);
-                mover = 1;
+           
             }
         else if(btn6.getIcon() == zombieamover&& btn5.getIcon() == def){
                 btn5.setIcon(zombieamover);
                 set_casilla(btn6,zombieamover);
-                mover = 1;
+           
             }
         else if(btn7.getIcon() == zombieamover&& btn6.getIcon() == def){
                 btn6.setIcon(zombieamover);
                 set_casilla(btn7,zombieamover);
-                mover = 1;
             }
         else if(btn8.getIcon() == zombieamover&& btn7.getIcon() == def){
                 btn7.setIcon(zombieamover);
                 set_casilla(btn8,zombieamover);
-                mover = 1;
+                
             }
         if(btn10.getIcon() == zombieamover&& btn9.getIcon() == def){
                 btn9.setIcon(zombieamover);
                 set_casilla(btn10,zombieamover);
-                mover = 1;
+                
             }
         else if(btn11.getIcon() == zombieamover&& btn10.getIcon() == def){
                 btn10.setIcon(zombieamover);
                 set_casilla(btn11,zombieamover);
-                mover = 1;
+               
             }
         else if(btn12.getIcon() == zombieamover&& btn11.getIcon() == def){
                 btn11.setIcon(zombieamover);
                 set_casilla(btn12,zombieamover);
-                mover = 1;
+                
             }
         else if(btn13.getIcon() == zombieamover&& btn12.getIcon() == def){
                 btn12.setIcon(zombieamover);
                 set_casilla(btn13,zombieamover);
-                mover = 1;
+                
             }
         else if(btn14.getIcon() == zombieamover&& btn13.getIcon() == def){
                 btn13.setIcon(zombieamover);
                 set_casilla(btn14,zombieamover);
-                mover = 1;
+                
             }
         else if(btn15.getIcon() == zombieamover&& btn14.getIcon() == def){
                 btn14.setIcon(zombieamover);
                 set_casilla(btn15,zombieamover);
-                mover = 1;
+                
             }
         else if(btn16.getIcon() == zombieamover&& btn16.getIcon() == def){
                 btn15.setIcon(zombieamover);
                 set_casilla(btn16,zombieamover);
-                mover = 1;
+                
             }
         if(btn22.getIcon() == zombieamover&& btn14.getIcon() == def){
                 btn14.setIcon(zombieamover);
                 set_casilla(btn22,zombieamover);
-                mover = 1;
+                
                 
             }
         else if(btn23.getIcon() == zombieamover&& btn22.getIcon() == def){
                 btn22.setIcon(zombieamover);
                 set_casilla(btn23,zombieamover);
-                mover = 1;
+                
                
             }
         else if(btn24.getIcon() == zombieamover&& btn23.getIcon() == def){
                 btn23.setIcon(zombieamover);
                 set_casilla(btn24,zombieamover);
-                mover = 1;
                 
             }
         if(btn32.getIcon() == zombieamover&& btn24.getIcon() == def){
                 btn24.setIcon(zombieamover);
                 set_casilla(btn32,zombieamover);
-                mover = 1;
+                
                 
             }
         if(btn40.getIcon() == zombieamover&& btn32.getIcon() == def){
                 btn32.setIcon(zombieamover);
                 set_casilla(btn40,zombieamover);
-                mover = 1;
             }
     }
     private void zombieAtack(){
@@ -281,43 +306,49 @@ public class tablero extends javax.swing.JFrame {
         if(casillasZ(zombiebase) == btn2 && btn1.getIcon() == shooter){
             tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
             if(tirador1.vida <= 0){
-                btn1.setIcon(def);
+                btn1.setIcon(def); 
             }
         }
         else if(casillasZ(zombiebase) == btn3 && btn2.getIcon() == shooter){
             tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
             if(tirador1.vida <= 0){
                 btn1.setIcon(def);
+                
             }
         }
         else if(casillasZ(zombiebase) == btn4 && btn3.getIcon() == shooter){
             tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
             if(tirador1.vida <= 0){
                 btn3.setIcon(def);
+                
             }
         }
         else if(casillasZ(zombiebase) == btn5 && btn4.getIcon() == shooter){
             tirador1.vida = (tirador1.vida - (flash.dano * flash.dañodoble));
             if(tirador1.vida <= 0){
                 btn4.setIcon(def);
+                
             }
         }
         else if(casillasZ(zombiebase) == btn6 && btn5.getIcon() == shooter){
             tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
             if(tirador1.vida <= 0){
                 btn5.setIcon(def);
+                
             }
         }
         else if(casillasZ(zombiebase) == btn7 && btn6.getIcon() == shooter){
             tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
             if(tirador1.vida <= 0){
-                btn4.setIcon(def);
+                btn6.setIcon(def);
+                
             }
         }
         else if(casillasZ(zombiebase) == btn8 && btn7.getIcon() == shooter){
             tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
             if(tirador1.vida <= 0){
-                btn4.setIcon(def);
+                btn7.setIcon(def);
+                
             }
         }
         else if(casillasZ(zombiebase) == btn10 && btn9.getIcon() == shooter){
@@ -377,7 +408,7 @@ public class tablero extends javax.swing.JFrame {
          else if(casillasZ(zombiebase) == btn24 && btn23.getIcon() == shooter){
             tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
             if(tirador1.vida <= 0){
-                btn4.setIcon(def);
+                btn23.setIcon(def);
             }
         }
          else if(casillasZ(zombiebase) == btn26 && btn25.getIcon() == shooter){
@@ -389,7 +420,7 @@ public class tablero extends javax.swing.JFrame {
          else if(casillasZ(zombiebase) == btn27 && btn26.getIcon() == shooter){
             tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
             if(tirador1.vida <= 0){
-                btn4.setIcon(def);
+                btn26.setIcon(def);
             }
         }
          else if(casillasZ(zombiebase) == btn30 && btn29.getIcon() == shooter){
@@ -401,140 +432,140 @@ public class tablero extends javax.swing.JFrame {
         //
         //
         else if(casillasZ(zombiebase) == btn2 && btn1.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn1.setIcon(def);
             }
         }
         else if(casillasZ(zombiebase) == btn3 && btn2.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(tirador1.vida <= 0){
                 btn2.setIcon(def);
             }
         }
-        else if(casillasZ(zombiebase) == btn4 && btn3.getIcon() == explorador1){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+        else if(casillasZ(zombiebase) == btn4 && btn3.getIcon() == explorador){
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn3.setIcon(def);
             }
         }
         else if(casillasZ(zombiebase) == btn5 && btn4.getIcon() == explorador){
-            explorador1.vida = (explorador1.vida - (flash.dano * flash.dañodoble));
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn4.setIcon(def);
             }
         }
         else if(casillasZ(zombiebase) == btn6 && btn5.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn5.setIcon(def);
             }
         }
         else if(casillasZ(zombiebase) == btn7 && btn6.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn6.setIcon(def);
             }
         }
         else if(casillasZ(zombiebase) == btn8 && btn7.getIcon() == explorador){
-            explorador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = tirador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn7.setIcon(def);
             }
         }
         else if(casillasZ(zombiebase) == btn10 && btn9.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn9.setIcon(def);
             }
         }
         else if(casillasZ(zombiebase) == btn11 && btn10.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn10.setIcon(def);
             }
         }
          else if(casillasZ(zombiebase) == btn12 && btn11.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn11.setIcon(def);
             }
         }
          else if(casillasZ(zombiebase) == btn13 && btn12.getIcon() ==explorador){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn12.setIcon(def);
             }
         }
          else if(casillasZ(zombiebase) == btn14 && btn13.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn13.setIcon(def);
             }
         }
          else if(casillasZ(zombiebase) == btn15 && btn14.getIcon() == explorador1){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn14.setIcon(def);
             }
         }
          else if(casillasZ(zombiebase) == btn16 && btn15.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn15.setIcon(def);
             }
         }
          else if(casillasZ(zombiebase) == btn18 && btn17.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn17.setIcon(def);
             }
         }
          else if(casillasZ(zombiebase) == btn23 && btn22.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn22.setIcon(def);
             }
         }
          else if(casillasZ(zombiebase) == btn24 && btn23.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn23.setIcon(def);
             }
         }
          else if(casillasZ(zombiebase) == btn26 && btn25.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn25.setIcon(def);
             }
         }
          else if(casillasZ(zombiebase) == btn27 && btn26.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn26.setIcon(def);
             }
         }
          else if(casillasZ(zombiebase) == btn30 && btn29.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (flash.dano * flash.dañodoble);
+            explorador1.vida = explorador1.vida - ((flash.dano * flash.dañodoble)- explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn29.setIcon(def);
@@ -788,140 +819,140 @@ public class tablero extends javax.swing.JFrame {
         //
         //
         else if(casillasZ(tankzombie) == btn2 && btn1.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn1.setIcon(def);
             }
         }
         else if(casillasZ(tankzombie) == btn3 && btn2.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(tirador1.vida <= 0){
                 btn2.setIcon(def);
             }
         }
         else if(casillasZ(tankzombie) == btn4 && btn3.getIcon() == explorador1){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn3.setIcon(def);
             }
         }
         else if(casillasZ(tankzombie) == btn5 && btn4.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn4.setIcon(def);
             }
         }
         else if(casillasZ(tankzombie) == btn6 && btn5.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn5.setIcon(def);
             }
         }
         else if(casillasZ(tankzombie) == btn7 && btn6.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn6.setIcon(def);
             }
         }
         else if(casillasZ(tankzombie) == btn8 && btn7.getIcon() == explorador){
-            explorador1.vida = tirador1.vida - tank.dano;
+            explorador1.vida = tirador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn7.setIcon(def);
             }
         }
         else if(casillasZ(tankzombie) == btn10 && btn9.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn9.setIcon(def);
             }
         }
         else if(casillasZ(tankzombie) == btn11 && btn10.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn10.setIcon(def);
             }
         }
          else if(casillasZ(tankzombie) == btn12 && btn11.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn11.setIcon(def);
             }
         }
          else if(casillasZ(tankzombie) == btn13 && btn12.getIcon() ==explorador){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn12.setIcon(def);
             }
         }
          else if(casillasZ(tankzombie) == btn14 && btn13.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn13.setIcon(def);
             }
         }
          else if(casillasZ(tankzombie) == btn15 && btn14.getIcon() == explorador1){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn14.setIcon(def);
             }
         }
          else if(casillasZ(tankzombie) == btn16 && btn15.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn15.setIcon(def);
             }
         }
          else if(casillasZ(tankzombie) == btn18 && btn17.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn17.setIcon(def);
             }
         }
          else if(casillasZ(tankzombie) == btn23 && btn22.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn22.setIcon(def);
             }
         }
          else if(casillasZ(tankzombie) == btn24 && btn23.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn23.setIcon(def);
             }
         }
          else if(casillasZ(tankzombie) == btn26 && btn25.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn25.setIcon(def);
             }
         }
          else if(casillasZ(tankzombie) == btn27 && btn26.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn26.setIcon(def);
             }
         }
          else if(casillasZ(tankzombie) == btn30 && btn29.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - tank.dano;
+            explorador1.vida = explorador1.vida - (tank.dano - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn29.setIcon(def);
@@ -1175,140 +1206,140 @@ public class tablero extends javax.swing.JFrame {
         //
         //
         else if(casillasZ(megazombie) == btn2 && btn1.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn1.setIcon(def);
             }
         }
         else if(casillasZ(megazombie) == btn3 && btn2.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(tirador1.vida <= 0){
                 btn2.setIcon(def);
             }
         }
         else if(casillasZ(megazombie) == btn4 && btn3.getIcon() == explorador1){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn3.setIcon(def);
             }
         }
         else if(casillasZ(megazombie) == btn5 && btn4.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn4.setIcon(def);
             }
         }
         else if(casillasZ(megazombie) == btn6 && btn5.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn5.setIcon(def);
             }
         }
         else if(casillasZ(megazombie) == btn7 && btn6.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn6.setIcon(def);
             }
         }
         else if(casillasZ(megazombie) == btn8 && btn7.getIcon() == explorador){
-            explorador1.vida = tirador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = tirador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn7.setIcon(def);
             }
         }
         else if(casillasZ(megazombie) == btn10 && btn9.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn9.setIcon(def);
             }
         }
         else if(casillasZ(megazombie) == btn11 && btn10.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn10.setIcon(def);
             }
         }
          else if(casillasZ(megazombie) == btn12 && btn11.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn11.setIcon(def);
             }
         }
          else if(casillasZ(megazombie) == btn13 && btn12.getIcon() ==explorador){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn12.setIcon(def);
             }
         }
          else if(casillasZ(megazombie) == btn14 && btn13.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn13.setIcon(def);
             }
         }
          else if(casillasZ(megazombie) == btn15 && btn14.getIcon() == explorador1){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn14.setIcon(def);
             }
         }
          else if(casillasZ(megazombie) == btn16 && btn15.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn15.setIcon(def);
             }
         }
          else if(casillasZ(megazombie) == btn18 && btn17.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn17.setIcon(def);
             }
         }
          else if(casillasZ(megazombie) == btn23 && btn22.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn22.setIcon(def);
             }
         }
          else if(casillasZ(megazombie) == btn24 && btn23.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn23.setIcon(def);
             }
         }
          else if(casillasZ(megazombie) == btn26 && btn25.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn25.setIcon(def);
             }
         }
          else if(casillasZ(megazombie) == btn27 && btn26.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn26.setIcon(def);
             }
         }
          else if(casillasZ(megazombie) == btn30 && btn29.getIcon() == explorador){
-            explorador1.vida = explorador1.vida - (superz.dano + superz.fuerza);
+            explorador1.vida = explorador1.vida - ((superz.dano + superz.fuerza) - explorador1.escudoProtector);
             explorador1.vida += explorador1.regeneracionVida;
             if(explorador1.vida <= 0){
                 btn29.setIcon(def);
@@ -1435,6 +1466,11 @@ public class tablero extends javax.swing.JFrame {
             if(ninja1.vida <= 0){
                 btn29.setIcon(def);
             }
+        if(explorador1.vida > 0 && explorador1.vida < 20){
+            explorador1.vida += explorador1.vidaextra;
+        }
+        }if(tirador1.vida <= 0 || explorador1.vida <=0 || ninja1.vida <= 0){
+            personajeClick = 0;
         }
     }
     private void determinarZombie(ImageIcon zombien, JButton spawn){
@@ -1483,30 +1519,36 @@ public class tablero extends javax.swing.JFrame {
             dano.setText("Daño: " + tirador1.ataque);
             h1.setText("Tiros extra: " + tirador1.tiroExtra);
             h2.setText("Critico" + tirador1.critico);
+            arma.setText("Arma equipada: " + tirador1.getArma());
         }
-        if(personajeClick == 2){
+        else if(personajeClick == 2){
             vida.setText("Vida: " + ninja1.vida);
             dano.setText("Daño: " + ninja1.ataque);
             h1.setText("Daño extra: " + ninja1.dañoExtra);
             h2.setText("Daño por sangrado: " + ninja1.sangrado);
+            arma.setText("Arma equipada: " + ninja1.getArma());
         }
-        if(personajeClick == 3){
+        else if(personajeClick == 3){
             vida.setText("Vida: " + explorador1.vida);
             dano.setText("Daño: " + explorador1.ataque);
-            h1.setText("Casillas para avanzar: " + explorador1.casillasAvanzar);
+            h1.setText("Escudo al recibir daño: " + explorador1.escudoProtector);
             h2.setText("Regeneracion de vida: " + explorador1.regeneracionVida);
+            arma.setText("Arma equipada: " + explorador1.getArma());
         }
         if(zaatacar == 1){
             zvida.setText("Vida: " + flash.vida);
             zdano.setText("Daño: "+ flash.dano);
+            znombre.setText("Nombre: Flash Zombie");
         }  
-        if(zaatacar == 2){
+        else if(zaatacar == 2){
             zvida.setText("Vida: " + tank.vida);
             zdano.setText("Daño: "+ tank.dano);
+            znombre.setText("Nombre: Tank Zombie");
         }
-        if(zaatacar == 3){
+        else if(zaatacar == 3){
             zvida.setText("Vida: " + superz.vida);
             zdano.setText("Daño: "+ superz.dano);
+            znombre.setText("Nombre: Super Zombie");
         }
     }
     private void set_casilla(JButton casilla,ImageIcon icono){
@@ -1526,13 +1568,8 @@ public class tablero extends javax.swing.JFrame {
         }
     }
     private void bt4config(JButton boton,int bb,JButton btnc1,JButton btnc2,JButton btnc3,JButton btnc4){
-        if(boton.getIcon()==shooter){personajeClick = 1;}
-        if(boton.getIcon()==ninja){personajeClick = 2;}
-        if(boton.getIcon()==explorador){personajeClick = 3;}
-        if(boton.getIcon()== zombiebase){zaatacar=1;}
-        if(boton.getIcon()== tankzombie){zaatacar=2;}
-        if(boton.getIcon()== megazombie){zaatacar=3;}
-        else if(personajeClick == 1 && bb==1 && turno1 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
+        
+        if(personajeClick == 1 && bb==1 && turno1 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
                 && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             sh.setVisible(false);
             boton.setIcon(shooter);
@@ -1607,13 +1644,9 @@ public class tablero extends javax.swing.JFrame {
         b40 = 0;
     }
     private void bt3config(JButton boton,int bb,JButton btnc1,JButton btnc2,JButton btnc3){
-        if(boton.getIcon()==shooter){personajeClick = 1;}
-        if(boton.getIcon()==ninja){personajeClick = 2;}
-        if(boton.getIcon()==explorador){personajeClick = 3;}
-        if(boton.getIcon()== zombiebase){zaatacar=1;}
-        if(boton.getIcon()== tankzombie){zaatacar=2;}
-        if(boton.getIcon()== megazombie){zaatacar=3;}
-        else if(personajeClick == 1 && bb==1 && turno1 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
+        
+        System.out.println(zaatacar);
+        if(personajeClick == 1 && bb==1 && turno1 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
                 && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             sh.setVisible(false);
             boton.setIcon(shooter);
@@ -1643,13 +1676,8 @@ public class tablero extends javax.swing.JFrame {
         set_casillasd();
     }
     private void bt2config(JButton boton,int bb,JButton btnc1,JButton btnc2){
-        if(boton.getIcon()==shooter){personajeClick = 1;}
-        if(boton.getIcon()==ninja){personajeClick = 2;}
-        if(boton.getIcon()==explorador){personajeClick = 3;}
-        if(boton.getIcon()== zombiebase){zaatacar=1;}
-        if(boton.getIcon()== tankzombie){zaatacar=2;}
-        if(boton.getIcon()== megazombie){zaatacar=3;}
-        else if(personajeClick == 1 && bb==1 && turno1 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
+        
+        if(personajeClick == 1 && bb==1 && turno1 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
                 && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             sh.setVisible(false);
             boton.setIcon(shooter);
@@ -1676,13 +1704,8 @@ public class tablero extends javax.swing.JFrame {
         set_casillasd();
     }
     private void bt1config(JButton boton,int bb,JButton btnc1){
-        if(boton.getIcon()==shooter){personajeClick = 1;}
-        if(boton.getIcon()==ninja){personajeClick = 2;}
-        if(boton.getIcon()==explorador){personajeClick = 3;}
-        if(boton.getIcon()== zombiebase){zaatacar=1;}
-        if(boton.getIcon()== tankzombie){zaatacar=2;}
-        if(boton.getIcon()== megazombie){zaatacar=3;}
-        else if(personajeClick == 1 && bb==1 && turno1 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
+        
+        if(personajeClick == 1 && bb==1 && turno1 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
                 && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             sh.setVisible(false);
             boton.setIcon(shooter);
@@ -1705,59 +1728,17 @@ public class tablero extends javax.swing.JFrame {
         }
         set_casillasd();
     }
-    private void bt4Atackconfig(JButton boton,int bb1,int bb2,int bb3,int bb4,JButton btnc1,JButton btnc2,JButton btnc3,JButton btnc4){
-        if(boton.getIcon()==shooter){personajeClick = 1;}
-        if(boton.getIcon()==ninja){personajeClick = 2;}
-        if(boton.getIcon()==explorador){personajeClick = 3;}
-        if(btnc1.getIcon() == zombiebase && bb1 == 1|| btnc2.getIcon() == zombiebase && bb2 == 1
-                || btnc3.getIcon() == zombiebase && bb3 == 1 || btnc4.getIcon() == zombiebase && bb4 == 1){
+    private void Atackconfig(JButton btnc1,int bb1){
+        
+        if(btnc1.getIcon() == zombiebase && bb1 == 1){
             zaatacar = 1;
             atack.setVisible(true);
         }
-        else if(btnc1.getIcon() == tankzombie && bb1 == 1 || btnc2.getIcon() == tankzombie && bb2 == 1
-                || btnc3.getIcon() == tankzombie && bb3 == 1|| btnc4.getIcon() == tankzombie && bb4 == 1){
+        else if(btnc1.getIcon() == tankzombie && bb1 == 1 ){
             zaatacar = 2;
             atack.setVisible(true);
         }
-        else if(btnc1.getIcon() == megazombie && bb1 == 1|| btnc2.getIcon() == megazombie && bb2 == 1
-                || btnc3.getIcon() == megazombie && bb3 == 1 || btnc4.getIcon() == megazombie && bb4 == 1){
-            zaatacar = 3;
-            atack.setVisible(true);
-        }
-        else{
-            atack.setVisible(false);
-        }
-    }
-    private void bt3Atackconfig(JButton boton,int bb1,int bb2, int bb3,JButton btnc1,JButton btnc2,JButton btnc3){
-        if(boton.getIcon()==shooter){personajeClick = 1;}
-        if(boton.getIcon()==ninja){personajeClick = 2;}
-        if(boton.getIcon()==explorador){personajeClick = 3;}
-        if(btnc1.getIcon() == zombiebase && bb1 == 1 || btnc2.getIcon() == zombiebase && bb2 == 1|| btnc3.getIcon() == zombiebase && bb3 == 1){
-            atack.setVisible(true);
-        }
-        else if(btnc1.getIcon() == tankzombie && bb1 == 1 || btnc2.getIcon() == tankzombie && bb2 == 1 || btnc3.getIcon() == tankzombie && bb3 == 1){
-            atack.setVisible(true);
-        }
-         else if(btnc1.getIcon() == megazombie && bb1 == 1 || btnc2.getIcon() == megazombie && bb2 == 1|| btnc3.getIcon() == megazombie&& bb3 == 1){
-            atack.setVisible(true);
-        }
-        else{
-            atack.setVisible(false);
-        }
-    }
-    private void bt2Atackconfig(JButton boton,int bb1, int bb2,JButton btnc1,JButton btnc2){
-        if(boton.getIcon()==shooter){personajeClick = 1;}
-        if(boton.getIcon()==ninja){personajeClick = 2;}
-        if(boton.getIcon()==explorador){personajeClick = 3;}
-        if(btnc1.getIcon() == zombiebase && bb1 == 1 || btnc2.getIcon() == zombiebase && bb2 ==1){
-            zaatacar = 1;
-            atack.setVisible(true);
-        }
-        else if(btnc1.getIcon() == tankzombie && bb1 == 1 || btnc2.getIcon() == tankzombie && bb2 ==1){
-            zaatacar = 2;
-            atack.setVisible(true);
-        }
-         else if(btnc1.getIcon() == megazombie && bb1 == 1 || btnc2.getIcon() == megazombie && bb2 ==1){
+        else if(btnc1.getIcon() == megazombie && bb1 == 1){
             zaatacar = 3;
             atack.setVisible(true);
         }
@@ -1768,34 +1749,64 @@ public class tablero extends javax.swing.JFrame {
     private void equiparitem(JButton boton){
         if(boton.getIcon() == sword && personajeClick == 1){
             tirador1.ataque += espada.getAtaque();
+            
             boton.setIcon(def);
         }
         else if(boton.getIcon() == sword && personajeClick == 2){
             ninja1.ataque += espada.getAtaque();
+            
             boton.setIcon(def);
         }
         else if(boton.getIcon() == sword && personajeClick == 3){
             explorador1.ataque += espada.getAtaque();
+            
             boton.setIcon(def);
         }
         else if(boton.getIcon() == gun && personajeClick == 1){
             tirador1.ataque += pistola.getAtaque();
+            
             boton.setIcon(def);
         }
         else if(boton.getIcon() == gun && personajeClick == 2){
             ninja1.ataque += pistola.getAtaque();
+            
             boton.setIcon(def);
         }
-        else if(boton.getIcon() == gun && personajeClick == 3){
+        else if(boton.getIcon() == gun && personajeClick == 3 ){
             explorador1.ataque += pistola.getAtaque();
+            
             boton.setIcon(def);
         }
         setestats();
+    }
+    public void gameover(){
+        int i = 1;
+        ImageIcon z = new ImageIcon();
+        while(i <= 3){
+            switch (i) {
+                case 1 -> z = zombiebase;
+                case 2 -> z = tankzombie;
+                case 3 -> z = megazombie;
+                default -> {
+                }
+            }
+            if(btn1.getIcon() == z || btn9.getIcon() == z || btn12.getIcon() == z || btn25.getIcon() ==z || btn33.getIcon() == z){
+                g.setVisible(true);
+                lose.setVisible(true);
+            }
+            i++;      
+        }
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
+        jFrame2 = new javax.swing.JFrame();
+        jDialog1 = new javax.swing.JDialog();
+        jDialog2 = new javax.swing.JDialog();
+        jDialog3 = new javax.swing.JDialog();
+        jDialog4 = new javax.swing.JDialog();
         btn1 = new javax.swing.JButton();
         btn4 = new javax.swing.JButton();
         btn3 = new javax.swing.JButton();
@@ -1838,7 +1849,6 @@ public class tablero extends javax.swing.JFrame {
         btn24 = new javax.swing.JButton();
         sh = new javax.swing.JLabel();
         nin = new javax.swing.JLabel();
-        spawn = new javax.swing.JButton();
         explo = new javax.swing.JLabel();
         atack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -1849,6 +1859,77 @@ public class tablero extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         zvida = new javax.swing.JLabel();
         zdano = new javax.swing.JLabel();
+        fitem = new javax.swing.JLabel();
+        znombre = new javax.swing.JLabel();
+        lose = new javax.swing.JLabel();
+        g = new javax.swing.JButton();
+        arma = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());
+        jFrame2.getContentPane().setLayout(jFrame2Layout);
+        jFrame2Layout.setHorizontalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame2Layout.setVerticalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
+        jDialog2.getContentPane().setLayout(jDialog2Layout);
+        jDialog2Layout.setHorizontalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog2Layout.setVerticalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog3Layout = new javax.swing.GroupLayout(jDialog3.getContentPane());
+        jDialog3.getContentPane().setLayout(jDialog3Layout);
+        jDialog3Layout.setHorizontalGroup(
+            jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog3Layout.setVerticalGroup(
+            jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog4Layout = new javax.swing.GroupLayout(jDialog4.getContentPane());
+        jDialog4.getContentPane().setLayout(jDialog4Layout);
+        jDialog4Layout.setHorizontalGroup(
+            jDialog4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog4Layout.setVerticalGroup(
+            jDialog4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -2134,18 +2215,6 @@ public class tablero extends javax.swing.JFrame {
             }
         });
 
-        spawn.setIcon(def);
-        spawn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                spawnMouseClicked(evt);
-            }
-        });
-        spawn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                spawnActionPerformed(evt);
-            }
-        });
-
         explo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 exploMouseClicked(evt);
@@ -2171,211 +2240,254 @@ public class tablero extends javax.swing.JFrame {
 
         jLabel2.setText("ZOMBIE STATS:");
 
+        fitem.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        fitem.setText("YA TIENES UN ITEM EQUIPADO!!");
+
+        lose.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lose.setText("HAS PERDIDO!");
+
+        g.setText("SALIR");
+        g.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(atack, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(explo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(sh, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nin, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
-                        .addGap(151, 151, 151)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btn17, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn18, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn19, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn20, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn21, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn22, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn23, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn10, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn11, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn12, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn13, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn14, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn15, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btn25, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn26, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn27, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn28, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn29, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn30, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn31, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btn33, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn34, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn35, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn36, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn37, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn38, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn39, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(nin, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btn24, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn16, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btn40, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn32, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spawn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(btn25, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn26, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn27, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn28, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn29, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn30, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn31, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(btn33, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn34, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn35, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn36, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn37, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn38, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn39, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btn40, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btn32, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(btn17, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(btn18, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(btn19, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(btn20, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(btn21, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(btn22, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(btn23, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(btn10, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(btn11, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(btn12, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(btn13, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(btn14, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(btn15, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(btn24, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btn16, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(fitem, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lose, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(g, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(455, 455, 455))
+                                    .addComponent(atack, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(explo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(vida, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dano, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(h1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(h2, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
+                    .addComponent(h1, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                    .addComponent(arma, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(dano, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(h2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
-                    .addComponent(zvida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(zdano, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(znombre, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                    .addComponent(zdano, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(zvida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(sh, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(99, 99, 99)
                         .addComponent(nin, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(explo, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn15, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn14, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn13, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn12, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn11, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn10, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn18, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btn23, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn22, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn21, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn20, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn19, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn17, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn31, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn30, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn29, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn28, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn27, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn26, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn25, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn39, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn38, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn37, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn36, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn35, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn34, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn33, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(spawn, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
+                                .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn16, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn24, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btn15, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn14, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn13, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn12, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn11, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn10, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btn18, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btn23, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn22, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn21, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn20, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn19, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn17, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(vida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(zvida, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))))
+                                    .addComponent(zvida, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(zdano, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(dano, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(30, 30, 30)
+                                        .addComponent(h1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(znombre, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(h2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(zdano, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                                    .addComponent(dano, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(30, 30, 30)
-                                .addComponent(h1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(h2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(81, 81, 81))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn16, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(arma, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(explo, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btn31, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn30, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn29, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn28, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn27, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn26, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn25, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn24, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btn33, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btn39, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn38, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn37, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn36, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn35, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn34, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn32, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addComponent(btn40, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(atack, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn40, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lose, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(g, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fitem, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                                .addComponent(atack, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(90, 90, 90))))))
         );
 
         pack();
@@ -2393,17 +2505,19 @@ public class tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_shMouseClicked
 
     private void btn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn1MouseClicked
+        if(btn1.getIcon()==shooter){personajeClick = 1;}
+        else if(btn1.getIcon()==ninja){personajeClick = 2;}
+        else if(btn1.getIcon()==explorador){personajeClick = 3;}
+        else if(btn1.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn1.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn1.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn1);
+        Atackconfig(btn1,b1);
         bt2config(btn1,b1,btn2,btn9);
         setestats();
         todos_cero();
         b2 = 1;
         b9 = 1;
-        if(personajeClick == 3){
-            b3 =1;
-            b17 =1;
-        }
-        bt2Atackconfig(btn1,b2,b9,btn2,btn9);
         moverzombie();
     }//GEN-LAST:event_btn1MouseClicked
 
@@ -2420,117 +2534,172 @@ public class tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_ninMouseClicked
 
     private void btn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn2MouseClicked
+        gameover();
+        if(btn2.getIcon()==shooter){personajeClick = 1;}
+        else if(btn2.getIcon()==ninja){personajeClick = 2;}
+        else if(btn2.getIcon()==explorador){personajeClick = 3;}
+        else if(btn2.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn2.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn2.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn2);
+        Atackconfig(btn2,b2);
         bt3config(btn2,b2,btn1,btn3,btn10);
         setestats();
         todos_cero();
         b1 = 1;
         b3 = 1;
         b10 = 1;
-        if(personajeClick == 3){
-            b4 =1;
-            b18 =1;
-        }
-        bt3Atackconfig(btn2,b1,b3,b10,btn1,btn3,btn10);
         moverzombie();
     }//GEN-LAST:event_btn2MouseClicked
 
     private void btn3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn3MouseClicked
+        gameover();
+        if(btn3.getIcon()==shooter){personajeClick = 1;}
+        else if(btn3.getIcon()==ninja){personajeClick = 2;}
+        else if(btn3.getIcon()==explorador){personajeClick = 3;}
+        else if(btn3.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn3.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn3.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn3);
+        Atackconfig(btn3,b3);
         bt3config(btn3,b3,btn2,btn4,btn11);
         setestats();
         todos_cero();
         b2 = 1;
         b4 = 1;
         b11 = 1;
-        if(personajeClick == 3){
-            b5 =1;
-        }
-        bt3Atackconfig(btn3,b2,b4,b11,btn2,btn4,btn11);
         moverzombie();
     }//GEN-LAST:event_btn3MouseClicked
 
     private void btn16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn16ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_btn16ActionPerformed
 
     private void btn4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn4MouseClicked
+        gameover();
+        if(btn4.getIcon()==shooter){personajeClick = 1;}
+        else if(btn4.getIcon()==ninja){personajeClick = 2;}
+        else if(btn4.getIcon()==explorador){personajeClick = 3;}
+        else if(btn4.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn4.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn4.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn4);
+        Atackconfig(btn4,b4);
         bt3config(btn4,b4,btn3,btn5,btn12);
         setestats();
         todos_cero();
         b3 = 1;
         b5 = 1;
         b12 = 1;
-        if(personajeClick == 3){
-            b3 =1;
-            b17 =1;
-        }
-        bt3Atackconfig(btn4,b3,b5,b12,btn3,btn5,btn12);
         moverzombie();
     }//GEN-LAST:event_btn4MouseClicked
 
     private void btn5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn5MouseClicked
+        gameover();
+        if(btn5.getIcon()==shooter){personajeClick = 1;}
+        else if(btn5.getIcon()==ninja){personajeClick = 2;}
+        else if(btn5.getIcon()==explorador){personajeClick = 3;}
+        else if(btn5.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn5.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn5.getIcon()== megazombie){zaatacar=3;}
+        setestats();
         equiparitem(btn5);
+        Atackconfig(btn5,b5);
         bt3config(btn5,b5,btn4,btn13,btn6);
         setestats();
         todos_cero();
         b4 = 1;
         b13 = 1;
         b6 = 1;
-        bt3Atackconfig(btn5,b4,b13,b6,btn4,btn13,btn6);
+        setestats();
         moverzombie();
+        setestats();
     }//GEN-LAST:event_btn5MouseClicked
 
     private void btn6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn6MouseClicked
+        gameover();
+        if(btn6.getIcon()==shooter){personajeClick = 1;}
+        else if(btn6.getIcon()==ninja){personajeClick = 2;}
+        else if(btn6.getIcon()==explorador){personajeClick = 3;}
+        else if(btn6.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn6.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn6.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn6);
+        Atackconfig(btn6,b6);
         bt3config(btn6,b6,btn5,btn14,btn7);
         setestats();
         todos_cero();
         b5 = 1;
         b14 = 1;
         b7 = 1;
-        bt3Atackconfig(btn6,b5,b14,b7,btn5,btn14,btn7);
         moverzombie();
     }//GEN-LAST:event_btn6MouseClicked
 
     private void btn7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn7MouseClicked
+        gameover();
+        if(btn7.getIcon()==shooter){personajeClick = 1;}
+        else if(btn7.getIcon()==ninja){personajeClick = 2;}
+        else if(btn7.getIcon()==explorador){personajeClick = 3;}
+        else if(btn7.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn7.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn7.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn7);
+        Atackconfig(btn7,b7);
         bt3config(btn7,b7,btn8,btn6,btn15);
         setestats();
         todos_cero();
         b8 = 1;
         b6 = 1;
         b15 = 1;
-        bt3Atackconfig(btn7,b8,b6,b15,btn8,btn6,btn15);
         moverzombie();
     }//GEN-LAST:event_btn7MouseClicked
 
     private void btn8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn8MouseClicked
+       gameover();
+       if(btn8.getIcon()==shooter){personajeClick = 1;}
+       else if(btn8.getIcon()==ninja){personajeClick = 2;}
+       else if(btn8.getIcon()==explorador){personajeClick = 3;}
+       else if(btn8.getIcon()== zombiebase){zaatacar=1;}
+       else if(btn8.getIcon()== tankzombie){zaatacar=2;}
+       else if(btn8.getIcon()== megazombie){zaatacar=3;}
        equiparitem(btn8);
-       bt2config(btn8,b8,btn7,btn16);
+       Atackconfig(btn8,b8);
        setestats();
        todos_cero();
        b7 = 1;
        b16 = 1;
-       bt2Atackconfig(btn8,b8,b16,btn7,btn16);
        moverzombie();
     }//GEN-LAST:event_btn8MouseClicked
 
     private void btn9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn9MouseClicked
+        gameover();
+        if(btn9.getIcon()==shooter){personajeClick = 1;}
+        else if(btn9.getIcon()==ninja){personajeClick = 2;}
+        else if(btn9.getIcon()==explorador){personajeClick = 3;}
+        else if(btn9.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn9.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn9.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn9);
+        Atackconfig(btn9,b9);
         bt3config(btn9,b9,btn1,btn10,btn17);
         setestats();
         todos_cero();
         b1 = 1;
         b10 = 1;
         b17 = 1;
-        bt3Atackconfig(btn9,b1,b10,b17,btn1,btn10,btn17);
         moverzombie();
     }//GEN-LAST:event_btn9MouseClicked
 
     private void btn10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn10MouseClicked
+        gameover();
+        if(btn10.getIcon()==shooter){personajeClick = 1;}
+        else if(btn10.getIcon()==ninja){personajeClick = 2;}
+        else if(btn10.getIcon()==explorador){personajeClick = 3;}
+        else if(btn10.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn10.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn10.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn10);
+        Atackconfig(btn10,b10);
         bt4config(btn10,b10,btn11,btn9,btn18,btn2);
         setestats();
         todos_cero();
@@ -2538,24 +2707,38 @@ public class tablero extends javax.swing.JFrame {
         b2 = 1;
         b18 = 1;
         b11 = 1;
-        bt4Atackconfig(btn10,b11,b9,b18,b2,btn11,btn9,btn18,btn2);
         moverzombie();
     }//GEN-LAST:event_btn10MouseClicked
 
     private void btn11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn11MouseClicked
+        gameover();
+        if(btn11.getIcon()==shooter){personajeClick = 1;}
+        else if(btn11.getIcon()==ninja){personajeClick = 2;}
+        else if(btn11.getIcon()==explorador){personajeClick = 3;}
+        else if(btn11.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn11.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn11.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn11);
+        Atackconfig(btn11,b11);
         bt3config(btn11,b11,btn10,btn12,btn3);
         setestats();
         todos_cero();
         b10 = 1;
         b12 = 1;
         b3 = 1;
-        bt3Atackconfig(btn11,b10,b12,b3,btn10,btn12,btn3);
         moverzombie();
     }//GEN-LAST:event_btn11MouseClicked
 
     private void btn12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn12MouseClicked
+        gameover();
+        if(btn12.getIcon()==shooter){personajeClick = 1;}
+        else if(btn12.getIcon()==ninja){personajeClick = 2;}
+        else if(btn12.getIcon()==explorador){personajeClick = 3;}
+        else if(btn12.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn12.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn12.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn12);
+        Atackconfig(btn12,b12);
         bt4config(btn12,b12,btn11,btn4,btn20,btn13);
         setestats();
         todos_cero();
@@ -2563,12 +2746,19 @@ public class tablero extends javax.swing.JFrame {
         b11 = 1;
         b20 = 1;
         b13 = 1;
-        bt4Atackconfig(btn12,b11,b4,b20,b13,btn11,btn4,btn20,btn13);
         moverzombie();
     }//GEN-LAST:event_btn12MouseClicked
 
     private void btn13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn13MouseClicked
+        gameover();
+        if(btn13.getIcon()==shooter){personajeClick = 1;}
+        else if(btn13.getIcon()==ninja){personajeClick = 2;}
+        else if(btn13.getIcon()==explorador){personajeClick = 3;}
+        else if(btn13.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn13.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn13.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn13);
+        Atackconfig(btn13,b13);
         bt4config(btn13,b13,btn12,btn5,btn14,btn21);
         setestats();
         todos_cero();
@@ -2576,12 +2766,19 @@ public class tablero extends javax.swing.JFrame {
         b5 = 1;
         b14 = 1;
         b21 = 1;
-        bt4Atackconfig(btn13,b12,b5,b14,b21,btn12,btn5,btn14,btn21);
         moverzombie();
     }//GEN-LAST:event_btn13MouseClicked
 
     private void btn14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn14MouseClicked
+        gameover();
+        if(btn14.getIcon()==shooter){personajeClick = 1;}
+        else if(btn14.getIcon()==ninja){personajeClick = 2;}
+        else if(btn14.getIcon()==explorador){personajeClick = 3;}
+        else if(btn14.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn14.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn14.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn14);
+        Atackconfig(btn14,b14);
         bt4config(btn14,b14,btn15,btn22,btn13,btn6);
         setestats(); 
         todos_cero();
@@ -2589,12 +2786,19 @@ public class tablero extends javax.swing.JFrame {
         b22 = 1;
         b13 = 1;
         b6 = 1;
-        bt4Atackconfig(btn14,b15,b22,b13,b6,btn15,btn22,btn13,btn6);
         moverzombie();
     }//GEN-LAST:event_btn14MouseClicked
 
     private void btn15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn15MouseClicked
+        gameover();
+        if(btn15.getIcon()==shooter){personajeClick = 1;}
+        else if(btn15.getIcon()==ninja){personajeClick = 2;}
+        else if(btn15.getIcon()==explorador){personajeClick = 3;}
+        else if(btn15.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn15.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn15.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn15);
+        Atackconfig(btn15,b15);
         bt4config(btn15,b15,btn14,btn7,btn16,btn23);
         setestats();
         todos_cero();
@@ -2602,120 +2806,190 @@ public class tablero extends javax.swing.JFrame {
         b7 = 1;
         b16 = 1;
         b23 = 1;
-        bt4Atackconfig(btn15,b14,b7,b16,b23,btn14,btn7,btn16,btn23);
         moverzombie();
     }//GEN-LAST:event_btn15MouseClicked
 
     private void btn16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn16MouseClicked
+        gameover();
+        if(btn16.getIcon()==shooter){personajeClick = 1;}
+        else if(btn16.getIcon()==ninja){personajeClick = 2;}
+        else if(btn16.getIcon()==explorador){personajeClick = 3;}
+        else if(btn16.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn16.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn16.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn16);
+        Atackconfig(btn16,b16);
         bt3config(btn16,b16,btn15,btn8,btn24);
         setestats();
         todos_cero();
         b15 = 1;
         b8 = 1;
         b24 = 1;
-        bt3Atackconfig(btn16,b15,b8,b24,btn15,btn8,btn24);
         moverzombie();
     }//GEN-LAST:event_btn16MouseClicked
 
     private void btn17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn17MouseClicked
+        gameover();
+        if(btn17.getIcon()==shooter){personajeClick = 1;}
+        else if(btn17.getIcon()==ninja){personajeClick = 2;}
+        else if(btn17.getIcon()==explorador){personajeClick = 3;}
+        else if(btn17.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn17.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn17.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn17);
+        Atackconfig(btn17,b17);
         bt3config(btn17,b17,btn9,btn25,btn18);
         setestats();
         todos_cero();
         b25 = 1;
         b9 = 1;
         b18 = 1;
-        bt3Atackconfig(btn17,b9,b25,b18,btn9,btn25,btn18);
         moverzombie();
     }//GEN-LAST:event_btn17MouseClicked
 
     private void btn18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn18MouseClicked
+        gameover();
+        if(btn18.getIcon()==shooter){personajeClick = 1;}
+        else if(btn18.getIcon()==ninja){personajeClick = 2;}
+        else if(btn18.getIcon()==explorador){personajeClick = 3;}
+        else if(btn18.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn18.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn18.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn18);
+        Atackconfig(btn18,b18);
         bt3config(btn18,b18,btn17,btn10,btn26);
         setestats();
         todos_cero();
         b17 = 1;
         b10 = 1;
         b26 = 1;
-        bt3Atackconfig(btn18,b17,b10,b26,btn17,btn10,btn26);
         moverzombie();
     }//GEN-LAST:event_btn18MouseClicked
 
     private void btn20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn20MouseClicked
+        gameover();
+        if(btn20.getIcon()==shooter){personajeClick = 1;}
+        else if(btn20.getIcon()==ninja){personajeClick = 2;}
+        else if(btn20.getIcon()==explorador){personajeClick = 3;}
+        else if(btn20.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn20.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn20.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn20);
+        Atackconfig(btn20,b20);
         bt3config(btn20,b20,btn12,btn21,btn28);
         setestats();
         todos_cero();
         b12 = 1;
         b21= 1;
         b28 = 1;
-        bt3Atackconfig(btn20,b12,b21,b28,btn12,btn21,btn28);
         moverzombie();
     }//GEN-LAST:event_btn20MouseClicked
 
     private void btn21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn21MouseClicked
+        gameover();
+        if(btn21.getIcon()==shooter){personajeClick = 1;}
+        else if(btn21.getIcon()==ninja){personajeClick = 2;}
+        else if(btn21.getIcon()==explorador){personajeClick = 3;}
+        else if(btn21.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn21.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn21.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn21);
+        Atackconfig(btn20,b20);
         bt3config(btn21,b21,btn13,btn20,btn29);
         setestats();
         todos_cero();
         b13 = 1;
         b20 = 1;
         b29 = 1;
-        bt3Atackconfig(btn21,b13,b20,b29,btn13,btn20,btn29);
         moverzombie();
     }//GEN-LAST:event_btn21MouseClicked
 
     private void btn22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn22MouseClicked
+        gameover();
+        if(btn22.getIcon()==shooter){personajeClick = 1;}
+        else if(btn22.getIcon()==ninja){personajeClick = 2;}
+        else if(btn22.getIcon()==explorador){personajeClick = 3;}
+        else if(btn22.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn22.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn22.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn22);
+        Atackconfig(btn22,b22);
         bt3config(btn22,b22,btn23,btn14,btn30);
         setestats();
         todos_cero();
         b23 = 1;
         b14 = 1;
         b30 = 1;
-        bt3Atackconfig(btn22,b23,b14,b30,btn23,btn14,btn30);
         moverzombie();
     }//GEN-LAST:event_btn22MouseClicked
 
     private void btn23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn23MouseClicked
+        gameover();
+        if(btn23.getIcon()==shooter){personajeClick = 1;}
+        else if(btn23.getIcon()==ninja){personajeClick = 2;}
+        else if(btn23.getIcon()==explorador){personajeClick = 3;}
+        else if(btn23.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn23.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn23.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn23);
+        Atackconfig(btn23,b23);
         bt3config(btn23,b23,btn22,btn15,btn24);
         setestats();
         todos_cero();
         b22 = 1;
         b15 = 1;
         b24 = 1;
-        bt3Atackconfig(btn23,b22,b15,b24,btn22,btn15,btn24);
         moverzombie();
     }//GEN-LAST:event_btn23MouseClicked
 
     private void btn24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn24MouseClicked
+        gameover();
+        if(btn24.getIcon()==shooter){personajeClick = 1;}
+        else if(btn24.getIcon()==ninja){personajeClick = 2;}
+        else if(btn24.getIcon()==explorador){personajeClick = 3;}
+        else if(btn24.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn24.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn24.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn24);
+        Atackconfig(btn24,b24);
         bt3config(btn24,b24,btn23,btn16,btn32);
         setestats();
         todos_cero();
         b23 = 1;
         b16 = 1;
         b32 = 1;
-        bt3Atackconfig(btn24,b23,b16,b32,btn23,btn16,btn32);
         moverzombie();
     }//GEN-LAST:event_btn24MouseClicked
 
     private void btn25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn25MouseClicked
+        gameover();
+        if(btn25.getIcon()==shooter){personajeClick = 1;}
+        else if(btn25.getIcon()==ninja){personajeClick = 2;}
+        else if(btn25.getIcon()==explorador){personajeClick = 3;}
+        else if(btn25.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn25.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn25.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn25);
+        Atackconfig(btn25,b25);
         bt3config(btn25,b25,btn26,btn17,btn33);
         setestats();
         todos_cero();
         b26 = 1;
         b17 = 1;
         b33 = 1;
-        bt3Atackconfig(btn25,b26,b17,b33,btn26,btn17,btn33);
         moverzombie();
     }//GEN-LAST:event_btn25MouseClicked
 
     private void btn26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn26MouseClicked
+        gameover();
+        if(btn26.getIcon()==shooter){personajeClick = 1;}
+        else if(btn26.getIcon()==ninja){personajeClick = 2;}
+        else if(btn26.getIcon()==explorador){personajeClick = 3;}
+        else if(btn26.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn26.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn26.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn26);
+        Atackconfig(btn26,b26);
         bt4config(btn26,b26,btn25,btn27,btn18,btn34);
         setestats();
         todos_cero();
@@ -2723,18 +2997,24 @@ public class tablero extends javax.swing.JFrame {
         b27 = 1;
         b18 = 1;
         b34 = 1;
-        bt4Atackconfig(btn26,b25,b27,b18,b34,btn25,btn27,btn18,btn34);
         moverzombie();
     }//GEN-LAST:event_btn26MouseClicked
 
     private void btn27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn27MouseClicked
+        gameover();
+        if(btn27.getIcon()==shooter){personajeClick = 1;}
+        else if(btn27.getIcon()==ninja){personajeClick = 2;}
+        else if(btn27.getIcon()==explorador){personajeClick = 3;}
+        else if(btn27.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn27.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn27.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn27);
+        Atackconfig(btn27,b27);
         bt2config(btn27,b27,btn26,btn28);
         setestats();
         todos_cero();
         b26 = 1;
         b28 = 1;
-        bt2Atackconfig(btn27,b26,b28,btn26,btn28);
         moverzombie();
     }//GEN-LAST:event_btn27MouseClicked
 
@@ -2743,18 +3023,33 @@ public class tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_btn28ActionPerformed
 
     private void btn28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn28MouseClicked
+        gameover();
+        if(btn28.getIcon()==shooter){personajeClick = 1;}
+        else if(btn28.getIcon()==ninja){personajeClick = 2;}
+        else if(btn28.getIcon()==explorador){personajeClick = 3;}
+        else if(btn28.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn28.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn28.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn28);
+        Atackconfig(btn28,b28);
         bt3config(btn28,b28,btn27,btn20,btn29);
         setestats();
         todos_cero();
         b27 = 1;
         b20 = 1;
-        bt3Atackconfig(btn28,b27,b20,b29,btn27,btn20,btn29);
         moverzombie();
     }//GEN-LAST:event_btn28MouseClicked
 
     private void btn29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn29MouseClicked
+        gameover();
+        if(btn29.getIcon()==shooter){personajeClick = 1;}
+        else if(btn29.getIcon()==ninja){personajeClick = 2;}
+        else if(btn29.getIcon()==explorador){personajeClick = 3;}
+        else if(btn29.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn29.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn29.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn29);
+        Atackconfig(btn29,b29);
         bt4config(btn29,b29,btn28,btn30,btn37,btn21);
         setestats();
         todos_cero();
@@ -2762,80 +3057,129 @@ public class tablero extends javax.swing.JFrame {
         b30 = 1;
         b37 = 1;
         b21 = 1;
-        bt4Atackconfig(btn29,b28,b30,b37,b21,btn28,btn30,btn37,btn21);
         moverzombie();
     }//GEN-LAST:event_btn29MouseClicked
 
     private void btn30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn30MouseClicked
+        gameover();
+        if(btn30.getIcon()==shooter){personajeClick = 1;}
+        else if(btn30.getIcon()==ninja){personajeClick = 2;}
+        else if(btn30.getIcon()==explorador){personajeClick = 3;}
+        else if(btn30.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn30.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn30.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn30);
+        Atackconfig(btn30,b30);
         bt3config(btn30,b30,btn29,btn22,btn38);
         setestats();
         todos_cero();
         b29 = 1;
         b22 = 1;
         b38 = 1;
-        bt3Atackconfig(btn30,b29,b22,b38,btn29,btn22,btn38);
         moverzombie();
     }//GEN-LAST:event_btn30MouseClicked
 
     private void btn32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn32MouseClicked
+        gameover();
+        if(btn32.getIcon()==shooter){personajeClick = 1;}
+        else if(btn32.getIcon()==ninja){personajeClick = 2;}
+        else if(btn32.getIcon()==explorador){personajeClick = 3;}
+        else if(btn32.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn32.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn32.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn32);
+        Atackconfig(btn32,b32);
         bt2config(btn32,b32,btn24,btn40);
         setestats();
         todos_cero();
         b24 = 1;
         b40 = 1;
-        bt2Atackconfig(btn32,b24,b40,btn24,btn40);
         moverzombie();
     }//GEN-LAST:event_btn32MouseClicked
 
     private void btn33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn33MouseClicked
+        gameover();
+        if(btn33.getIcon()==shooter){personajeClick = 1;}
+        else if(btn33.getIcon()==ninja){personajeClick = 2;}
+        else if(btn33.getIcon()==explorador){personajeClick = 3;}
+        else if(btn33.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn33.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn33.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn33);
+        Atackconfig(btn33,b33);
         bt2config(btn33,b33,btn25,btn34);
         setestats();
         todos_cero();
         b25 = 1;
         b34 = 1;
-        bt2Atackconfig(btn33,b25,b34,btn25,btn34);
         moverzombie();
     }//GEN-LAST:event_btn33MouseClicked
 
     private void btn34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn34MouseClicked
+        gameover();
+        if(btn34.getIcon()==shooter){personajeClick = 1;}
+        else if(btn34.getIcon()==ninja){personajeClick = 2;}
+        else if(btn34.getIcon()==explorador){personajeClick = 3;}
+        else if(btn34.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn34.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn34.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn34);
+        Atackconfig(btn34,b34);
         bt2config(btn34,b34,btn26,btn33);
         setestats();
         todos_cero();
         b26 = 1;
         b33 = 1;
-        bt2Atackconfig(btn34,b26,b33,btn26,btn33);
         moverzombie();
     }//GEN-LAST:event_btn34MouseClicked
 
     private void btn37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn37MouseClicked
+        gameover();
+        if(btn37.getIcon()==shooter){personajeClick = 1;}
+        else if(btn37.getIcon()==ninja){personajeClick = 2;}
+        else if(btn37.getIcon()==explorador){personajeClick = 3;}
+        else if(btn37.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn37.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn37.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn37);
+        Atackconfig(btn37,b37);
         bt2config(btn37,b37,btn29,btn38);
         setestats();
         todos_cero();
         b29 = 1;
         b38 = 1;
-        bt2Atackconfig(btn37,b29,b38,btn29,btn38);
         moverzombie();
     }//GEN-LAST:event_btn37MouseClicked
 
     private void btn38MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn38MouseClicked
+        gameover();
+        if(btn38.getIcon()==shooter){personajeClick = 1;}
+        else if(btn38.getIcon()==ninja){personajeClick = 2;}
+        else if(btn38.getIcon()==explorador){personajeClick = 3;}
+        else if(btn38.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn38.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn38.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn38);
+        Atackconfig(btn38,b38);
         bt3config(btn38,b38,btn37,btn39,btn30);
         setestats();
         todos_cero();
         b37 = 1;
         b39 = 1;
         b30 = 1;
-        bt3Atackconfig(btn38,b37,b39,b30,btn37,btn39,btn30);
         moverzombie();
     }//GEN-LAST:event_btn38MouseClicked
 
     private void btn39MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn39MouseClicked
+        gameover();
+        if(btn39.getIcon()==shooter){personajeClick = 1;}
+        else if(btn39.getIcon()==ninja){personajeClick = 2;}
+        else if(btn39.getIcon()==explorador){personajeClick = 3;}
+        else if(btn39.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn39.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn39.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn39);
+        Atackconfig(btn39,b39);
         bt1config(btn39,b39,btn38);
         setestats();
         todos_cero();
@@ -2844,21 +3188,21 @@ public class tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_btn39MouseClicked
 
     private void btn40MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn40MouseClicked
+        gameover();
+        if(btn40.getIcon()==shooter){personajeClick = 1;}
+        else if(btn40.getIcon()==ninja){personajeClick = 2;}
+        else if(btn40.getIcon()==explorador){personajeClick = 3;}
+        else if(btn40.getIcon()== zombiebase){zaatacar=1;}
+        else if(btn40.getIcon()== tankzombie){zaatacar=2;}
+        else if(btn40.getIcon()== megazombie){zaatacar=3;}
         equiparitem(btn40);
+        Atackconfig(btn40,b40);
         bt1config(btn40,b40,btn32);
         setestats();
         todos_cero();
         b32 = 1;
         moverzombie();
     }//GEN-LAST:event_btn40MouseClicked
-
-    private void spawnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spawnMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_spawnMouseClicked
-
-    private void spawnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spawnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_spawnActionPerformed
 
     private void exploMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exploMouseClicked
         todos_cero();
@@ -2918,7 +3262,7 @@ public class tablero extends javax.swing.JFrame {
             }
             turno1 = 0;
         }
-        else if(personajeClick == 2 && zaatacar == 1 && turno2 == 1){
+        if(personajeClick == 2 && zaatacar == 1 && turno2 == 1){
             flash.vida = flash.vida - (ninja1.ataque + ninja1.dañoExtra + ninja1.sangrado);
             flash.vida = flash.vida + flash.regeneracion;
             atack.setVisible(false);
@@ -2955,7 +3299,7 @@ public class tablero extends javax.swing.JFrame {
             }
             turno2 = 0;
         }
-        else if(personajeClick == 3 && zaatacar == 1 && turno3 == 1){
+        if(personajeClick == 3 && zaatacar == 1 && turno3 == 1){
             flash.vida = flash.vida - explorador1.ataque;
             flash.vida = flash.vida + flash.regeneracion;
             atack.setVisible(false);
@@ -2995,8 +3339,13 @@ public class tablero extends javax.swing.JFrame {
         setestats();
     }//GEN-LAST:event_atackMouseClicked
 
+    private void gMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseClicked
+        System.exit(1);
+    }//GEN-LAST:event_gMouseClicked
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel arma;
     private javax.swing.JButton atack;
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn10;
@@ -3040,15 +3389,24 @@ public class tablero extends javax.swing.JFrame {
     private javax.swing.JButton btn9;
     private javax.swing.JLabel dano;
     private javax.swing.JLabel explo;
+    private javax.swing.JLabel fitem;
+    private javax.swing.JButton g;
     private javax.swing.JLabel h1;
     private javax.swing.JLabel h2;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog jDialog2;
+    private javax.swing.JDialog jDialog3;
+    private javax.swing.JDialog jDialog4;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lose;
     private javax.swing.JLabel nin;
     private javax.swing.JLabel sh;
-    private javax.swing.JButton spawn;
     private javax.swing.JLabel vida;
     private javax.swing.JLabel zdano;
+    private javax.swing.JLabel znombre;
     private javax.swing.JLabel zvida;
     // End of variables declaration//GEN-END:variables
 }
