@@ -1,14 +1,16 @@
 package proyectpoo;
 
+// Clase extendida de la clase base personaje,aplicando herencia
 public class flashZombie extends zombie {
     protected int dañodoble;
     protected int regeneracion;
-
+    // Constructor de la subclase flashzombie con el metodo super para agregarle los atributos de la clase base
     public flashZombie(int _vida, int _daño, String _item, int _dañodoble,int _regeneracion) {
         super(_vida, _daño, _item);
         this.dañodoble = _dañodoble;
         this.regeneracion = _regeneracion;
     }
+    // getters para los atributos de esta instancia 
     public int  getDañoDoble(){
         return dañodoble;
     }
