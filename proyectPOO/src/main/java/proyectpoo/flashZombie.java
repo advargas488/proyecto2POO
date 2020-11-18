@@ -2,6 +2,7 @@ package proyectpoo;
 
 // Clase extendida de la clase base zombie,aplicando herencia
 public class flashZombie extends zombie {
+    // Atributos de la subclase con un acesso protected para accederlos dentro del paquete
     protected int dañodoble;
     protected int regeneracion;
     // Constructor de la subclase flashzombie con el metodo super para agregarle los atributos de la clase base
