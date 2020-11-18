@@ -1,6 +1,6 @@
 package proyectpoo;
 
-// Clase extendida de la clase base personaje,aplicando herencia
+// Clase extendida de la clase base zombie,aplicando herencia
 public class flashZombie extends zombie {
     protected int dañodoble;
     protected int regeneracion;
