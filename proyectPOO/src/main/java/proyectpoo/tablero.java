@@ -6,6 +6,7 @@ import javax.swing.JButton;
 public class tablero extends javax.swing.JFrame {
     public tablero() {
         initComponents();
+        //se ponen algunas etiquetas y botones para el juagador
         sh.setText("");
         nin.setText("");
         sh.setIcon(shooter);
@@ -16,10 +17,12 @@ public class tablero extends javax.swing.JFrame {
         lose.setVisible(false);
         atack.setVisible(false);
         fitem.setVisible(false);
+        //se agregan las stats de las armas equipadas a los personajes
         addArmas(); 
-        System.out.println(pistola.getAtaque());
     }
     private void addArmas(){
+        //se compara el arma equipada con el nombre de las armas creadas, si este es igual
+        //se agregan los stats que da el arma a los stats del jugador
         if(explorador1.arma.equals(espada.getNombre())){
             explorador1.ataque += espada.getAtaque();
             explorador1.rango += espada.getRango();
@@ -121,6 +124,7 @@ public class tablero extends javax.swing.JFrame {
     int b38 = 0;
     int b39 = 0;
     int b40 = 0;
+    //para saber cual casilla se puede atacar
     int b1a = 0;
     int b2a = 0;
     int b3a = 0;
@@ -161,7 +165,9 @@ public class tablero extends javax.swing.JFrame {
     int b38a= 0;
     int b39a = 0;
     int b40a = 0;
+    //para determinar el zombie a atacar
     int zaatacar;
+    //para ir seteando los spawns
     int btonspawn = 1;
     //para el control de los puntos de spawn
     JButton setspawn;
@@ -171,6 +177,7 @@ public class tablero extends javax.swing.JFrame {
     JButton botnfrentez;
 
     private JButton casillasZ(ImageIcon zombieamover){
+        //funcion que devuelve el boton donde se encuentra un zombie
         if(btn2.getIcon() == zombieamover){
                 botnfrentez = btn2;
             }
@@ -248,6 +255,7 @@ public class tablero extends javax.swing.JFrame {
         return botnfrentez;
     }//devuelve la casilla en el que n zombie se encuentra
     private void movzombien(ImageIcon zombieamover){
+        //funcion para mover un zombie, busca un zombie en una casilla y si la casilla de en frente esta vacia, lo mueve
         if(btn2.getIcon() == zombieamover && btn1.getIcon() == def){
                 btn1.setIcon(zombieamover);
                 set_casilla(btn2,zombieamover); 
@@ -346,6 +354,9 @@ public class tablero extends javax.swing.JFrame {
             }
     }
     private void zombieAtack(){
+        //funcion para que los zombies ataquen, recorre tod el tablero en busca de los zombies
+        //si encuentra uno y el boton de enfrente tiene un personaje, a este se le resta el daño del zombie
+        //
         //flashzombie
         if(casillasZ(zombiebase) == btn2 && btn1.getIcon() == shooter){
             tirador1.vida = tirador1.vida - (flash.dano * flash.dañodoble);
@@ -1524,14 +1535,18 @@ public class tablero extends javax.swing.JFrame {
         }
     }
     private void determinarZombie(ImageIcon zombien, JButton spawn){
+        //para spawnear un zombie
         if(spawn.getIcon()==def){
                 spawn.setIcon(zombien);
                 znum++;
         }
     }
     private void moverzombie(){
+        //funcion para el turno del zombie
+        //si el jugador ya movio los 3 personajes
         if(turno1 == 0 && turno2 == 0 && turno3 == 0){
             if(btonspawn == 4){btonspawn=1;}
+            //para cambiar el lugar de spawn
             switch (btonspawn) {
                 case 1 -> setspawn = btn8;
                 case 2 -> setspawn = btn24;
@@ -1540,6 +1555,7 @@ public class tablero extends javax.swing.JFrame {
                 }
             }
             if(defz == 4){defz = 1;}
+            //para alternar los zombies generados
             switch (defz) {
                 case 1 -> zombie = zombiebase;
                 case 2 -> zombie = tankzombie;
@@ -1547,15 +1563,19 @@ public class tablero extends javax.swing.JFrame {
                 default -> {
                 }
             }
+            //se mueven los 3 zombies
             movzombien(zombiebase);
             movzombien(tankzombie);
             movzombien(megazombie);
+            //si pueden atacar, atacan
             zombieAtack();
+            //si no hay tres zombies en el tablero, se genera un zombie nuevo
             if(znum != 3){
                determinarZombie(zombie,setspawn);
+               defz++;
+               btonspawn++;
             }
-            defz++;
-            btonspawn++;
+            
             turno1 = 1;
             turno2 = 1;
             turno3 = 1;
@@ -1564,6 +1584,8 @@ public class tablero extends javax.swing.JFrame {
         setestats();
     }
     private void setestats(){
+        //para darle informacion al usuario de los stats del personaje y de los zombies
+        //solo actualiza etiquetas segun los clicks del jugador
         if(personajeClick == 1){
             vida.setText("Vida: " + tirador1.vida);
             dano.setText("Daño: " + tirador1.ataque);
@@ -1605,11 +1627,13 @@ public class tablero extends javax.swing.JFrame {
         }
     }
     private void set_casilla(JButton casilla,ImageIcon icono){
+        //para devoolverle el icono inicial a una casilla
         if(casilla.getIcon()==icono){
               casilla.setIcon(def);
         }
     }
     private void set_casillasd(){
+        //para las casillas con obstaculos
         if(btn28.getIcon()==def){
               btn28.setIcon(barr);
         }
@@ -1621,16 +1645,20 @@ public class tablero extends javax.swing.JFrame {
         }
     }
     private void bt4config(JButton boton,int bb,JButton btnc1,JButton btnc2,JButton btnc3,JButton btnc4){
-        
+        //configuracion de un boton con 4 opciones de mover
         if(personajeClick == 1 && bb==1 && turno1 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
                 && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             sh.setVisible(false);
+            //se cambia el icono del boton
             boton.setIcon(shooter);
+            //se busca el icono del personaje donde estaba para devolverlo a su icono default
             set_casilla(btnc1,shooter);
             set_casilla(btnc2,shooter);
             set_casilla(btnc3,shooter); 
-            set_casilla(btnc4,shooter);  
+            set_casilla(btnc4,shooter); 
+            //termina el turno
             turno1 = 0;
+            //aumenta el nivel del jugador
             tirador1.nivel++;
         }
         else if(personajeClick == 3 && bb==1 && turno3 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
@@ -1658,6 +1686,7 @@ public class tablero extends javax.swing.JFrame {
         set_casillasd();
     }
     private void todos_cero(){
+        //para que el usuario no pueda mover
         b1 = 0;
         b2 = 0;
         b3 = 0;
@@ -1700,6 +1729,7 @@ public class tablero extends javax.swing.JFrame {
         b40 = 0;
     }
     private void bt3config(JButton boton,int bb,JButton btnc1,JButton btnc2,JButton btnc3){
+        //lo mismo que bt4config() pero este es para botones con 3 opciones a mover
         if(personajeClick == 1 && bb==1 && turno1 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
                 && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             sh.setVisible(false);
@@ -1733,6 +1763,7 @@ public class tablero extends javax.swing.JFrame {
         set_casillasd();
     }
     private void bt2config(JButton boton,int bb,JButton btnc1,JButton btnc2){
+        //lo mismo que bt4config() pero este es para botones con 2 opciones a mover
         if(personajeClick == 1 && bb==1 && turno1 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
                 && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             sh.setVisible(false);
@@ -1763,7 +1794,7 @@ public class tablero extends javax.swing.JFrame {
         set_casillasd();
     }
     private void bt1config(JButton boton,int bb,JButton btnc1){
-        
+        //lo mismo que bt4config() pero este es para botones con 1 opcion a mover
         if(personajeClick == 1 && bb==1 && turno1 == 1 && boton.getIcon()!=ninja && boton.getIcon()!=explorador && boton.getIcon()!=shooter
                 && boton.getIcon()!=zombiebase && boton.getIcon()!=tankzombie && boton.getIcon()!=megazombie){
             sh.setVisible(false);
@@ -1791,6 +1822,8 @@ public class tablero extends javax.swing.JFrame {
         set_casillasd();
     }
     private void Atackconfig(JButton btnc1,int bb1){
+        //para mostrar el boton de ataque
+        //si el boton ingresado tiene un zombie enfrente y esta a rango, se muestra el boton de ataque
         if(btnc1.getIcon() == zombiebase && bb1 == 1){
             zaatacar = 1;
             atack.setVisible(true);
@@ -1808,6 +1841,8 @@ public class tablero extends javax.swing.JFrame {
         }
     }
     private void equiparitem(JButton boton){
+        //para equipar los items, cuando se hace click  sobre un boton, si el icono de este es 
+        //el de un item, al personaje seleccionado, se le agregan los stats que brinda el item
         if(boton.getIcon() == VD && personajeClick == 1){
             tirador1.ataque += pvd.getDano();
             tirador1.vida += pvd.getVida();
@@ -1850,9 +1885,11 @@ public class tablero extends javax.swing.JFrame {
         setestats();
     }
     public void gameover(){
+        //funcion para verificar si el jugador perdio
         int i = 1;
         ImageIcon z = new ImageIcon();
         while(i <= 3){
+            //para ir cambiando el zombie
             switch (i) {
                 case 1 -> z = zombiebase;
                 case 2 -> z = tankzombie;
@@ -1860,14 +1897,18 @@ public class tablero extends javax.swing.JFrame {
                 default -> {
                 }
             }
+            //si alguna de las casillas iniciales es alcanzada por un zombie, el jugador pierde
             if(btn1.getIcon() == z || btn9.getIcon() == z || btn12.getIcon() == z || btn25.getIcon() ==z || btn33.getIcon() == z){
                 g.setVisible(true);
                 lose.setVisible(true);
+                todos_cero();
             }
             i++;      
         }
     }
     public void niveles(){
+        //para llevar el control de las habilidades del jugador
+        //cada 3 niveles el jugador adquiere una habilidad
         if(tirador1.nivel >= 3){
             tirador1.critico = 15;
         }if(tirador1.nivel >= 6){
@@ -1891,6 +1932,7 @@ public class tablero extends javax.swing.JFrame {
         }
     }
     private void setRango(int v1, int v2, int v3, int v4){
+        //para setear el las variables de ataque en 1 si el rango del personaje es mayor a 1
         if(personajeClick == 1 && tirador1.rango > 1){
             v1 = 1;
             v2 = 1;
@@ -2612,9 +2654,14 @@ public class tablero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void shMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shMouseClicked
+        //esta es la etiqueta de un personaje al inicio
+        //si  se selecciona esta etiqueta
         todos_cero();
+        //se indica cual personaje fue clickeado
         personajeClick = 1;
+        //da las stats
         setestats();
+        //las casillas iniciales se pueden mover
         b1 = 1;
         b9 = 1;
         b17 = 1;
@@ -2623,24 +2670,37 @@ public class tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_shMouseClicked
 
     private void btn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn1MouseClicked
+        //configuracion de un boton, todos tienen la misma configuracion
+        //si el icono del boton es el de un personaje o un zombie, se indica cual zombie o personaje
+        //fue seleccionado
         if(btn1.getIcon()==shooter){personajeClick = 1;}
         else if(btn1.getIcon()==ninja){personajeClick = 2;}
         else if(btn1.getIcon()==explorador){personajeClick = 3;}
         else if(btn1.getIcon()== zombiebase){zaatacar=1;}
         else if(btn1.getIcon()== tankzombie){zaatacar=2;}
         else if(btn1.getIcon()== megazombie){zaatacar=3;}
+        //se pueden equipar items y seguir con su turno
         equiparitem(btn1);
+        //se puede atacar y termina su turno
         Atackconfig(btn1,b1a);
+        // o se puede mover y termina su turno
         bt2config(btn1,b1,btn2,btn9);
+        //se revisa si el jugador ya tiene alguna habilidad
         niveles();
+        //se actualizan las etiquetas
         setestats();
+        //para evitar errores de movimientos erroneos
         todos_cero();
+        //se setean las variables que indican donde se puede mover
         b2 = 1;
         b9 = 1;
         b2a = 1;
         b9a = 1;
         niveles();
+        //se mueven los zombies
         moverzombie();
+        //por si el personaje tiene rango
+        //este procedimiento se reemplaza por una funcion (setRango())
         if(personajeClick == 1 && tirador1.rango > 1){
             b3a = 1 ;
             b17a = 1;
@@ -3361,6 +3421,12 @@ public class tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_btn32MouseClicked
 
     private void atackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_atackMouseClicked
+        //configuracion del boton de ataque
+        //se fija sobre cual personaje se hizo click y sobre cual zombie
+        //aqui se aplican habilidades
+        //si puede atacar, el damage del personaje se le resta al zombie seleccionado
+        //las habilidades de los personajes como el critico del jugador afectan al zombie
+        //al igual que las habilidades del zombie como la regeneracion de vida del flash zombie
         if(personajeClick == 1 && zaatacar == 1 && turno1 == 1){
             flash.vida = flash.vida - (tirador1.ataque + tirador1.critico);
             if(tirador1.tiroExtra==1){
@@ -3494,6 +3560,7 @@ public class tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_atackMouseClicked
 
     private void gMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseClicked
+        //boton de salir
         System.exit(1);
     }//GEN-LAST:event_gMouseClicked
 
